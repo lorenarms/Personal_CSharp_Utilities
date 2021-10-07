@@ -16,28 +16,42 @@ namespace WordWrapper
                 must subtract '1' bc a line that goes to the very edge of the window
                 makes a blank line below */
 
-            paragraphToWrap += " ";                                         //append 1 space to end of text
-            int totalLines = paragraphToWrap.Length / windowWidth;          //find total lines that text takes up
-            int remainderLines = paragraphToWrap.Length % windowWidth;      //find remainder of text that doesn't go to end of window
+            // append a space to the text
+            // find total lines of text
+            // find what text doesn't go to the end of the windwow
+            paragraphToWrap += " ";                                         
+            int totalLines = paragraphToWrap.Length / windowWidth;          
+            int remainderLines = paragraphToWrap.Length % windowWidth;
+
+            // text doesn't need to be wrapped
             if (totalLines <= 0)                                            
             {
-                Console.WriteLine(paragraphToWrap);                         //text doesn't need to be wrapped
+                Console.WriteLine(paragraphToWrap);                         
             }
             else
             {
-                while (totalLines > 0)                                      //loop while lines of text still remain
+                //loop while lines of text still remain
+                while (totalLines > 0)                                      
                 {
-                    int j;                                                  //initialize 'j' to be used outside of loop
+
+                    //initialize 'j' to be used outside of loop
+                    int j;
+
+                    //loop to find best place to split line
                     for (j = windowWidth; !paragraphToWrap[j].Equals(' '); j--)     
-                                                                            //loop to find best place to split line
+                                                                            
                     { }
                     var line = paragraphToWrap.Substring(0, j);   
                                                                             
-                    
-                    paragraphToWrap = paragraphToWrap.Substring(j + 1);     //text is reset to remove previous line, start at j+1 to remove space in front 
-                    Console.WriteLine(line);                                //print the extracted line
-                    totalLines--;                                           //let the loop know we've removed one line
+                    // remove the top line of text
+                    // print the line
+                    // decrement the number of lines
+                    paragraphToWrap = paragraphToWrap.Substring(j + 1);     
+                    Console.WriteLine(line);                                
+                    totalLines--;                                           
                 }
+
+                // this prints the very last line that doesn't go to window edge
                 if (remainderLines > 0)
                 {
                     Console.WriteLine(paragraphToWrap);

@@ -1,4 +1,12 @@
-﻿using System;
+﻿//============================================================================
+// Name        : WORD WRAPPER
+// Author      : Lorenzo Dominguez
+// Version     : 1.1.1
+// Copyright   : Copyright © October 7, 2021
+// Description : Naturally wrap the text of a long paragraph
+//============================================================================
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
