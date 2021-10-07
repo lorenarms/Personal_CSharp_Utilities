@@ -1,10 +1,4 @@
-﻿//============================================================================
-// Name        : INTERACTIVE MENU BUILDER
-// Author      : Lorenzo Dominguez
-// Version     : 1.2.0
-// Copyright   : Copyright © October 7, 2021
-// Description : Build an interactive menu for your C# program
-//============================================================================
+﻿
 
 
 using System;
@@ -56,6 +50,11 @@ namespace Lesson_10_HashTable_02
                         Console.WriteLine("You picked the fourth option!");
                         //ReadKey();
                         //Clear();
+                        break;
+                    }
+                    case -1:
+                    {
+                        Environment.Exit(0);
                         break;
                     }
                 }

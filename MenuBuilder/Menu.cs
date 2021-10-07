@@ -1,4 +1,12 @@
-﻿using System;
+﻿//============================================================================
+// Name        : INTERACTIVE MENU BUILDER
+// Author      : Lorenzo Dominguez
+// Version     : 1.2.0
+// Copyright   : Copyright © October 7, 2021
+// Description : Build an interactive menu for your C# program
+//============================================================================
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,6 +44,7 @@ namespace Lesson_10_HashTable_02
             _drawMenuColumnPos = GetConsoleWindowWidth() / 2 - (_menuMaximumWidth / 2);
         }
 
+        // Modify the menu to be left justified
         public void ModifyMenuLeftJustified(string[] menu)
         {
             int maximumWidth = 0;
@@ -64,6 +73,8 @@ namespace Lesson_10_HashTable_02
 
             _menuMaximumWidth = maximumWidth;
         }
+
+        // Modify the menu to be centered in its column
         public void ModifyMenuCentered(string[] menu)
         {
             int maximumWidth = 0;
@@ -111,6 +122,7 @@ namespace Lesson_10_HashTable_02
 
         }
 
+        // UTILITIES FOR THE CLASS
         public void SetConsoleWindowSize(int width, int height)
         {
             WindowWidth = width;
@@ -146,6 +158,8 @@ namespace Lesson_10_HashTable_02
             }
         }
 
+
+        // Engine to run the menu and relevant methods
         public int RunMenu()
         {
             bool run = true;
@@ -180,6 +194,9 @@ namespace Lesson_10_HashTable_02
                     return -1;
 
                 }
+                // add more key options here with more else if statements
+                // just make sure to add the case to your main switch statement
+
                 DrawMenu();
             }
 
