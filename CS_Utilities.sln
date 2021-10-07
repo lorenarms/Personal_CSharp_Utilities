@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordWrapper", "WordWrapper\WordWrapper.csproj", "{CF5355B8-E22C-43AE-A8D5-253CDCF899CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuBuilder", "MenuBuilder\MenuBuilder.csproj", "{47037928-AD01-4C23-B645-3B49369807EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF5355B8-E22C-43AE-A8D5-253CDCF899CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF5355B8-E22C-43AE-A8D5-253CDCF899CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF5355B8-E22C-43AE-A8D5-253CDCF899CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF5355B8-E22C-43AE-A8D5-253CDCF899CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47037928-AD01-4C23-B645-3B49369807EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47037928-AD01-4C23-B645-3B49369807EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47037928-AD01-4C23-B645-3B49369807EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47037928-AD01-4C23-B645-3B49369807EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {296B9411-8E4F-421F-8FA0-247AD0D53FAE}
+	EndGlobalSection
+EndGlobal
