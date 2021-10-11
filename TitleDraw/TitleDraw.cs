@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static TitleDraw.WindowUtilities;
 
 namespace TitleDraw
 {
@@ -12,14 +13,21 @@ namespace TitleDraw
         private int _titleWidth;
         private int _titleStartColumn;
         
-        public void DrawTitle(string title)
+        public void DrawTitle()
         {
-
+            SetCursorPosition(0, _titleStartColumn);
+            Console.WriteLine(_titleToDraw);
         }
 
-        public void SetWidth(string title)
-        {
+        
 
+        public void SetTitle(string title)
+        {
+            _titleToDraw = title;
+            _titleWidth = _titleToDraw.Length;
+            var temp = GetConsoleWindowWidth() - _titleWidth;
+            temp /= 2;
+            _titleStartColumn = temp;
         }
     }
 }
