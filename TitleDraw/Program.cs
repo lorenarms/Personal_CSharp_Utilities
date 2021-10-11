@@ -17,6 +17,8 @@ namespace TitleDraw
 
             newTitle.DrawTitle();
 
+            
+
             ReadKey();
         }
     }

@@ -33,12 +33,12 @@ namespace TitleDraw
 
         public static void SetCursorPosition(int row, int column)
         {
-            if (row > 0 && row < WindowHeight)
+            if (row >= 0 && row <= WindowHeight)
             {
                 CursorTop = row;
             }
 
-            if (column > 0 && column < WindowWidth)
+            if (column >= 0 && column <= WindowWidth)
             {
                 CursorLeft = column;
             }
