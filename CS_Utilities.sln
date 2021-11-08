@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateInputEngine", "Priva
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TitleDraw", "TitleDraw\TitleDraw.csproj", "{64A0475F-8B1F-4559-A7D1-D9507C1BF83C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternFinder", "PatternFinder\PatternFinder.csproj", "{BDF29D7F-442A-451E-9E93-47923B454054}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{64A0475F-8B1F-4559-A7D1-D9507C1BF83C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64A0475F-8B1F-4559-A7D1-D9507C1BF83C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64A0475F-8B1F-4559-A7D1-D9507C1BF83C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDF29D7F-442A-451E-9E93-47923B454054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF29D7F-442A-451E-9E93-47923B454054}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF29D7F-442A-451E-9E93-47923B454054}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF29D7F-442A-451E-9E93-47923B454054}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,10 +16,9 @@ namespace TitleDraw
             newTitle.SetTitle("This is the Main Title");
 
             newTitle.DrawTitle();
-
             
-
             ReadKey();
+            
         }
     }
 }
