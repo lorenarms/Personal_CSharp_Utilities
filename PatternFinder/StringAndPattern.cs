@@ -1,4 +1,14 @@
-﻿using System;
+﻿//============================================================================
+// Name        : PATTERN FINDER
+// Author      : Lorenzo Dominguez
+// Version     : 1.2.0
+// Copyright   : Copyright © November 7, 2021
+// Description : Find a multi-line pattern in a larger multi-line string array
+//============================================================================
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,14 +19,14 @@ namespace PatternFinder
 {
     class StringAndPattern
     {
-        private string[] _str;
-        private string[] _pat;
-        private int _strHeight;
-        private int _strWidth;
-        private int _patHeight;
-        private int _patWidth;
+        private readonly string[] _str;
+        private readonly string[] _pat;
+        private readonly int _strHeight;
+        private readonly int _strWidth;
+        private readonly int _patHeight;
+        private readonly int _patWidth;
 
-        private int[] Location;
+        private readonly int[] _location;
 
         public StringAndPattern(string[] str, string[] pat)
         {
@@ -28,7 +38,7 @@ namespace PatternFinder
             _patHeight = pat.Length - 1;
             _patWidth = pat[0].Length - 1;
 
-            Location = new[] {-1, -1};
+            _location = new[] {-1, -1};
 
         }
 
@@ -67,8 +77,8 @@ namespace PatternFinder
                             {
                                 
                                 foundPattern = true;
-                                Location[0] = i;
-                                Location[1] = j;
+                                _location[0] = i;
+                                _location[1] = j;
                                 break;
                             }
 
@@ -83,7 +93,7 @@ namespace PatternFinder
                 }
             }
             
-            return Location;
+            return _location;
         }
 
         public void DrawPictureAndPattern()
@@ -114,17 +124,16 @@ namespace PatternFinder
         {
             int patLength = _pat.Length;
             int patHeight = _pat[0].Length;
-            int patRow = Location[0];
+            int patRow = _location[0];
 
             WriteLine("LOCATION:");
             for (int i = 0; i < _str.Length; i++)
             {
                 for (int j = 0; j < _str[0].Length; j++)
                 {
-                    if (i == Location[0] && j == Location[1])
+                    if (i == _location[0] && j == _location[1])
                     {
                         ForegroundColor = ConsoleColor.Red;
-                        //Write(str[i][j]);
                         int k = 0;
                         while (k < _pat[0].Length)
                         {
@@ -135,9 +144,9 @@ namespace PatternFinder
 
                         ResetColor();
 
-                        if (Location[0] < patLength + patRow - 1)
+                        if (_location[0] < patLength + patRow - 1)
                         {
-                            Location[0]++;
+                            _location[0]++;
                         }
 
                         // conditional to stop error of trying to write out of bounds of array
@@ -150,7 +159,7 @@ namespace PatternFinder
                     {
                         Write(_str[i][j]);
                     }
-                    //Write(str[i][j]);
+                   
 
                 }
                 Write("\n");
