@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
 
-namespace Lesson_10_HashTable_02
+namespace MenuBuilder
 {
     class Menu
     {

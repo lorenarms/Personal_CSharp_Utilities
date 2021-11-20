@@ -4,7 +4,7 @@
 using System;
 using static System.Console;
 
-namespace Lesson_10_HashTable_02
+namespace MenuBuilder
 {
     class Program
     {
