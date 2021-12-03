@@ -38,6 +38,8 @@
   <ItemGroup>
     <Compile Include="Driver.cs" />
     <Compile Include="GenerateID.cs" />
+    <Compile Include="Table.cs" />
+    <Compile Include="Thing.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

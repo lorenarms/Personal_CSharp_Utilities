@@ -1,4 +1,19 @@
-﻿using System;
+﻿
+//
+// This class generates a random string of characters using
+// capital letters, lowercase letters, and numbers 0 - 9
+// Adjust "ID_SIZE" to make the string longer or shorter
+// Use "GetMaxEntries" to calculate how many total unique entries
+// can be created (for checking if a table is potentially full)
+//
+// Sample program included in "Driver.cs", creating a HashTable
+// filled with "Things". Add whatever properties to "Things" as
+// necessary.
+// 
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,6 +64,11 @@ namespace RandomIDGenerator
             }
 
             return s;
+        }
+
+        public static double GetMaxEntries()
+        {
+            return Math.Pow(_pool.Length, ID_SIZE);
         }
     }
 }
