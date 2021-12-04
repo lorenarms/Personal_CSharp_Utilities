@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BDF29D7F-442A-451E-9E93-47923B454054}</ProjectGuid>
+    <ProjectGuid>{8FB6B135-60D7-4047-B7D5-87C66B4123AC}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>PatternFinder</RootNamespace>
-    <AssemblyName>PatternFinder</AssemblyName>
+    <RootNamespace>ImportDataCSV</RootNamespace>
+    <AssemblyName>ImportDataCSV</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -37,12 +37,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data.cs" />
     <Compile Include="Driver.cs" />
-    <Compile Include="StringAndPattern.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="pattern.txt" />
-    <Content Include="pic.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CsvHelper, Version=27.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
