@@ -14,8 +14,6 @@ using System.IO;
 using System.Globalization;
 using System.Runtime.Versioning;
 using CsvHelper.Configuration;
-using CsvHelper.Configuration.Attributes;
-
 
 
 namespace ImportDataCSV
@@ -23,38 +21,43 @@ namespace ImportDataCSV
     class Driver
     {
         static void Main(string[] args)
-
         {
+            var c = new Customer();
             List<Customer> records;
-            using (var streamReader = new StreamReader(@"C:\Users\dayar\Downloads\sheet1.csv"))
+
+            // 'using' keyword allows disposal of object after it goes out of scope, freeing resources
+            using (var streamReader = new StreamReader(@"C:\Users\dayar\source\repos\CS_Utilities\ImportDataCSV\sheet1.csv"))
             {
                 using (var csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
                 {
                     records = csvReader.GetRecords<Customer>().ToList();
-
-                    
                 }
             }
+            c.PrintAll(records);
 
-            Console.WriteLine("Items in list: " + records.Count);
-            foreach (var s in records)
+            var sh = new SortingHat();
+
+            records.Sort(sh);
+            c.PrintAll(records);
+
+            using (var streamWriter = new StreamWriter(@"C:\Users\dayar\source\repos\CS_Utilities\ImportDataCSV\sorted_sheet1.csv"))
             {
-                Console.WriteLine("Name: " + s.FirstName + " " + s.LastName + " ID: " + s.IDNumber);
-            }
+                foreach (var r in records)
+                {
+                    var first = r.FirstName;
+                    var second = r.LastName;
+                    var third = r.IdNumber;
+                    var line = string.Format("{0},{1},{2}", first, second, third);
+                    streamWriter.WriteLine(line);
+                    streamWriter.Flush();
+                }
+
+            }       
+
 
             Console.ReadKey();
-
         }
-    }
 
-    public class Customer
-    {
-        [Name("id")]
-        public int IDNumber { get; set; }
-        [Name("fName")]
-        public string FirstName { get; set; }
-        [Name("lName")]
-        public string LastName { get; set; }
         
     }
 }
