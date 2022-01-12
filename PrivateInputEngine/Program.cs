@@ -12,11 +12,11 @@ namespace PrivateInputEngine
         {
             // make private input object for storing private string
             var privateInput01 = new PrivateInput();
-            var privateInput02 = new PrivateInput();
+            //var privateInput02 = new PrivateInput();
 
             // input and store the private string
             privateInput01.InputPrivately();
-            privateInput02.InputPrivately();
+            //privateInput02.InputPrivately();
 
             Clear();
             
@@ -24,7 +24,7 @@ namespace PrivateInputEngine
 
 
             Console.WriteLine("Private string: " + privateInput01.GetPrivateString());
-            Console.WriteLine("Private string: " + privateInput02.GetPrivateString());
+            //Console.WriteLine("Private string: " + privateInput02.GetPrivateString());
             
             
             ReadKey();
