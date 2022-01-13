@@ -1,4 +1,12 @@
-﻿using System;
+﻿//============================================================================
+// Name        : Password Calculator
+// Author      : Lorenzo Dominguez
+// Version     : 1.1.0
+// Copyright   : Copyright © August 10, 2021
+// Description : Input a string privately
+//============================================================================
+
+using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
@@ -25,7 +33,7 @@ namespace passwordcalc
 
             string password = Privacy.TypePW();
 
-            PWDeconstruct(passwordCharacterSets, numOfEachCharacterInPassword, password); //passes passwordCharacterSets by ref automatically for arrays
+            PwDeconstruct(passwordCharacterSets, numOfEachCharacterInPassword, password); //passes passwordCharacterSets by ref automatically for arrays
             for (int i = 0; i < 4; i++)
             {
                 totalCharactersInPassword += numOfEachCharacterInPassword[i];
@@ -45,7 +53,7 @@ namespace passwordcalc
             }
             Paragraph output = new Paragraph();     //create paragraph object
 
-            string paragraph = "Your password is " + StrngLngth(password) + " character(s) long, and contains " + passwordCharacterSets[0] + " " + passwordCharacterProperties.characters + ", " + passwordCharacterSets[1] + " " + passwordCharacterProperties.numbers +
+            string paragraph = "Your password is " + password.Length + " character(s) long, and contains " + passwordCharacterSets[0] + " " + passwordCharacterProperties.characters + ", " + passwordCharacterSets[1] + " " + passwordCharacterProperties.numbers +
                 ", " + passwordCharacterSets[2] + " uppercase " + passwordCharacterProperties.upperletters + ", and " + passwordCharacterSets[3] + " lowercase " + passwordCharacterProperties.lowerletters + ".";
 
 
@@ -53,17 +61,14 @@ namespace passwordcalc
             Paragraph.Wrap(paragraph);  //wrap paragraph object
             
             Console.WriteLine("\nPress 'ENTER' to test..."); Console.ReadLine();
-            TestPW(password, totalCharactersInPassword, combinations);
+            TestPW(password, combinations);
             Console.WriteLine("\nPress 'ENTER' to Exit."); Console.ReadLine();
 
         }
         
-        static int StrngLngth(string pass)
-        {
-            int length = pass.Length;   //find the length of the password
-            return length;
-        }
-        static void PWDeconstruct(int[] passwordCharacterSets, int[] numOfEachCharacterInPassword, string password)
+
+        
+        static void PwDeconstruct(int[] passwordCharacterSets, int[] numOfEachCharacterInPassword, string password)
         {
             for (int i = 0; i < password.Length; i++)
             {
@@ -89,8 +94,7 @@ namespace passwordcalc
         }
         static double PasswordCombinations(int totalCharactersInPassword, string password)
         {
-            int passwordLength = StrngLngth(password);
-            double combinations = (Math.Pow(totalCharactersInPassword, passwordLength));
+            double combinations = (Math.Pow(totalCharactersInPassword, password.Length));
             return combinations;
         }
         static void PasswordSuggestions()
@@ -100,7 +104,7 @@ namespace passwordcalc
         
        
 
-        public static void TestPW(String password, int totalCharactersInPassword, double combinations)
+        static void TestPW(String password, double combinations)
         {
             //double seconds, minutes, hours, days, years;
 
