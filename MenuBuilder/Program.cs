@@ -19,7 +19,7 @@ namespace MenuBuilder
             
             // modify the menu for center justification
             // menu can be modified to be left justified as well
-            newMenu.ModifyMenuCentered(menuOptions);
+            newMenu.ModifyMenuCentered();
             
             // center the menu to the console;
             // this overrides the col param in initial construction

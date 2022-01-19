@@ -21,46 +21,46 @@ using System.Threading.Tasks;
 
 namespace RandomIDGenerator
 {
-    class GenerateID
+    internal class GenerateId
     {
-        const int ID_SIZE = 10;
+        private static int _idSize = 10;
         private static string[] _pool;
 
-        private static void generatePool()
+        private static void GeneratePool()
         {
             _pool = new string[62];
-            int index = 0;
-            for (int i = 48; i < 58; i++)
+            var index = 0;
+            for (var i = 48; i < 58; i++)
             {
-                _pool[index] = Char.ToString((char) i);
+                _pool[index] = char.ToString((char) i);
                 index++;
             }
 
-            for (int i = 65; i < 91; i++)
+            for (var i = 65; i < 91; i++)
             {
-                _pool[index] = Char.ToString((char) i);
+                _pool[index] = char.ToString((char) i);
                 index++;
             }
 
-            for (int i = 97; i < 123; i++)
+            for (var i = 97; i < 123; i++)
             {
-                _pool[index] = Char.ToString((char) i);
+                _pool[index] = char.ToString((char) i);
                 index++;
             }
         }
 
-        public static string generateUniqueID()
+        public static string GenerateUniqueId()
         {
             if (_pool == null)
             {
-                generatePool();
+                GeneratePool();
             }
 
-            string s = "";
-            Random rnd = new Random();
-            for (int i = 0; i < ID_SIZE; i++)
+            var s = "";
+            var rnd = new Random();
+            for (int i = 0; i < _idSize; i++)
             {
-                s = s + _pool[rnd.Next(_pool.Length)];
+                if (_pool != null) s = s + _pool[rnd.Next(_pool.Length)];
             }
 
             return s;
@@ -68,7 +68,12 @@ namespace RandomIDGenerator
 
         public static double GetMaxEntries()
         {
-            return Math.Pow(_pool.Length, ID_SIZE);
+            return Math.Pow(_pool.Length, _idSize);
+        }
+
+        public void SetIdSize(int size)
+        {
+            _idSize = size;
         }
     }
 }

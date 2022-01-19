@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace RandomIDGenerator
 {
-    class Thing
+    internal class Thing
     {
-        private String _id;
-        private int _num;
+        private readonly string _id;
+        private readonly int _num;
         
 
-        public Thing(String id)
+        public Thing(string id)
         {
             _id = id;
             var rand = new Random();
             _num = rand.Next(100);
         }
-        public String GetID()
+        public string GetId()
         {
             return _id;
         }

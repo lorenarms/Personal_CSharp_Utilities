@@ -45,12 +45,12 @@ namespace MenuBuilder
         }
 
         // Modify the menu to be left justified
-        public void ModifyMenuLeftJustified()
+        public void ModifyMenuLeftJustified(string[] menu)
         {
             int maximumWidth = 0;
             string space = "";
 
-            foreach (var t in _options)
+            foreach (var t in menu)
             {
                 if (t.Length > maximumWidth)
                 {
@@ -60,21 +60,21 @@ namespace MenuBuilder
 
             maximumWidth += 6;
 
-            for (int i = 0; i < _options.Length; i++)
+            for (int i = 0; i < menu.Length; i++)
             {
-                int spacesToAdd = maximumWidth - _options[i].Length;
+                int spacesToAdd = maximumWidth - menu[i].Length;
                 for (int j = 0; j < spacesToAdd; j++)
                 {
                     space += " ";
                 }
-                _options[i] = _options[i] + space;
+                menu[i] = menu[i] + space;
                 space = "";
             }
 
             _menuMaximumWidth = maximumWidth;
         }
 
-        // Modify the menu to be centered in its column
+        // Modify the _options to be centered in its column
         public void ModifyMenuCentered()
         {
             int maximumWidth = 0;
@@ -89,13 +89,13 @@ namespace MenuBuilder
             }
 
             maximumWidth += 6;     // make widest measurement wider by 10
-                                    // modify this number to make menu wider / narrower
+                                    // modify this number to make _options wider / narrower
 
             for (int i = 0; i < _options.Length; i++)
             {
                 if (_options[i].Length % 2 != 0)
                 {
-                    _options[i] += " ";     // make all menu items even num char wide
+                    _options[i] += " ";     // make all _options items even num char wide
                 }
 
                 var minimumWidth = maximumWidth - _options[i].Length;
@@ -106,12 +106,12 @@ namespace MenuBuilder
                 }
 
                 _options[i] = space + _options[i] + space;      // add spaces on either side of each    
-                space = "";                             // menu item
+                space = "";                             // _options item
             }
 
             for (int i = 0; i < _options.Length; i++)
             {
-                if (_options[i].Length < maximumWidth)      // if any menu item isn't as wide as
+                if (_options[i].Length < maximumWidth)      // if any _options item isn't as wide as
                                                         // the max width, add 1 space
                 {
                     _options[i] += " ";

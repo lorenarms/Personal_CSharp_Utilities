@@ -3,21 +3,21 @@ using System.Collections;
 
 namespace RandomIDGenerator
 {
-    class Table
+    internal class Table
     {
-        private Hashtable t = null;
+        private readonly Hashtable _t = null;
         public Table()
         {
-            if (t == null)
+            if (_t == null)
             {
-                t = new Hashtable();
-                Console.WriteLine("Hastable created successfully.");
+                _t = new Hashtable();
+                Console.WriteLine("Hashtable created successfully.");
                 return;
             }
 
             Console.WriteLine("Hashtable already exists.");
         }
-        public Thing GetThing(String id)
+        public Thing GetThing(string id)
         {
             var thing = new Thing(id);
 
@@ -26,26 +26,26 @@ namespace RandomIDGenerator
 
         public Hashtable GetTable()
         {
-            return t;
+            return _t;
         }
 
         public void AddThing()
         {
-            String id = GenerateID.generateUniqueID();
-            while (t.ContainsKey(id) && t.Count < GenerateID.GetMaxEntries())
+            var id = GenerateId.GenerateUniqueId();
+            while (_t.ContainsKey(id) && _t.Count < GenerateId.GetMaxEntries())
             {
-                id = GenerateID.generateUniqueID();
+                id = GenerateId.GenerateUniqueId();
                 
             }
             var thing = new Thing(id);
-            Console.WriteLine("ID: " + thing.GetID());
-            t.Add(thing.GetID(), thing);
+            Console.WriteLine("ID: " + thing.GetId());
+            _t.Add(thing.GetId(), thing);
         }
 
         public void PrintAllThings()
         {
             Console.Clear();
-            var keys = t.Keys;
+            var keys = _t.Keys;
             if (keys.Count == 0)
             {
                 Console.WriteLine("Table has no entries");
@@ -53,15 +53,15 @@ namespace RandomIDGenerator
             foreach (var k in keys)
             {
                 // must cast to object type first
-                Thing t = (Thing)this.t[k];
-                Console.WriteLine("Thing ID: " + t.GetID());
+                var t = (Thing)this._t[k];
+                Console.WriteLine("Thing ID: " + t.GetId() + " Thing Number: " + t.GetNum());
             }
             
         }
 
         public void EmptyTable()
         {
-            t.Clear();
+            _t.Clear();
             Console.WriteLine("Table cleared.");
         }
     }

@@ -8,25 +8,36 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using MenuBuilder;
 
 namespace RandomIDGenerator
 {
-    class Driver
+    internal class Driver
     {
         public static void Main(string[] args)
         {
             Table table = null;
-            int sel = 0;
+            var sel = 0;
 
-            while (sel != 9)
+            while (sel != 5)
             {
-                Console.WriteLine("1: Create a table" + "\n2: Add a thing" + "\n3: Print all things" + "\n4: Destroy table" 
-                + "\n9: Exit");
-                var selection = Console.ReadLine();
-                sel = Int32.Parse(selection);
+                string[] menuOptions = {"Create a table" , "Add a thing" , "Print all things" , "Destroy table"
+                                        , "Exit" };
+
+                var newMenu = new Menu(menuOptions, 1, 1);
+
+                newMenu.ModifyMenuLeftJustified(menuOptions);
+
+                newMenu.CenterMenuToConsole();
+
+                newMenu.ResetCursorVisible();
+
+                sel = newMenu.RunMenu();
 
                 switch (sel)
                 {
+                        
+
                     case 1:
                     {
                         Console.Clear();

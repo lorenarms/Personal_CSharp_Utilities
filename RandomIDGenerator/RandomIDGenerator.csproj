@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="Driver.cs" />
     <Compile Include="GenerateID.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="Thing.cs" />
   </ItemGroup>
