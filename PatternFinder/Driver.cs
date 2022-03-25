@@ -32,12 +32,12 @@ namespace PatternFinder
         {
             string[] str = 
                 System.IO.File
-                    .ReadAllLines(@"C:\Users\dayar\source\repos\CS_Utilities\PatternFinder\pic.txt");
+                    .ReadAllLines(@"C:\Users\Lawrence\Git Repos\Personal_CSharp_Utilities\PatternFinder\pic.txt");
 
             // takes the pattern from a separate file with lines of text
             string[] pat =
                 System.IO.File
-                    .ReadAllLines(@"C:\Users\dayar\source\repos\CS_Utilities\PatternFinder\pattern.txt");
+                    .ReadAllLines(@"C:\Users\Lawrence\Git Repos\Personal_CSharp_Utilities\PatternFinder\pattern.txt");
 
             // sample patterns to search for; comment out each line one at a time to test
             //string[] pat = {"wql", "pzc", "bii"};
