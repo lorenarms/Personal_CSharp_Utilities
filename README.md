@@ -30,7 +30,7 @@
     <img src="https://seeklogo.com/images/C/c-sharp-c-logo-02F17714BA-seeklogo.com.png" alt="Logo" width="210">
   </a>
 
-  <h3 align="center">C# Utilities</h3>
+  <h2 align="center">C# Utilities</h2>
 
   <p align="center">
     Lawrence Artl III
