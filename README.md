@@ -30,18 +30,18 @@
     <img src="https://seeklogo.com/images/C/c-sharp-c-logo-02F17714BA-seeklogo.com.png" alt="Logo" width="210">
   </a>
 
-  <h2 align="center">C# Utilities</h2>
+  <h3 align="center">C# Utilities</h3>
 
   <p align="center">
     Lawrence Artl III
     <br />
-    <a href="https://github.com/lorenarms/SNHU_CS_370_Emerging_Trends_in_CS/tree/main/writeups"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/lorenarms/SNHU_CS_370_Emerging_Trends_in_CS/tree/main/writeups"><strong>Explore the docs Â»</strong></a>
     <br />
     <br />
     <a href="https://github.com/lorenarms/SNHU_CS_465_Full-Stack-Development-I/blob/main/images/travlr_login.gif">View Demo</a>
-    ·
+    Â·
     <a href="https://github.com/lorenarms/SNHU_CS_465_Full-Stack-Development-I/issues">Report Bug</a>
-    ·
+    Â·
     <a href="https://github.com/lorenarms/SNHU_CS_465_Full-Stack-Development-I/issues">Request Feature</a>
   </p>
 </div>
