@@ -124,7 +124,8 @@ These projects used the following frameworks, and will require them to run on yo
 
 
 <a href="https://www.udemy.com/course/csharp-advanced/">C# Advanced Topics: Prepare for Technical Interviews</a> 
-<p>You can find more of my C# work in the repository [C-Sharp: Mosh Advanced](https://github.com/lorenarms/Personal_CSharp_Mosh_Advanced). This repository goes with the above course.</p>
+
+You can find more of my C# work in the repository [C-Sharp: Mosh Advanced](https://github.com/lorenarms/Personal_CSharp_Mosh_Advanced). This repository goes with the above course.
 
 
 
