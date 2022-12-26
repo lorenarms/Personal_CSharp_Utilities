@@ -1,4 +1,16 @@
-﻿using System;
+﻿//*******************************************************************
+//
+// GIBBERISH GENERATOR
+//
+// Author: Lawrence Artl III
+//
+// Purpose: generate a text file that contains random numbers,
+// uppercase letters, or lowercase letters.
+// 
+//*******************************************************************
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
