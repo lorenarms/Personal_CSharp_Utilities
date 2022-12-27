@@ -38,7 +38,7 @@
     <a href="https://github.com/lorenarms/SNHU_CS_370_Emerging_Trends_in_CS/tree/main/writeups"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/lorenarms/SNHU_CS_465_Full-Stack-Development-I/blob/main/images/travlr_login.gif">View Demo</a>
+    <a href="#usage">View Demo</a>
     ·
     <a href="https://github.com/lorenarms/SNHU_CS_465_Full-Stack-Development-I/issues">Report Bug</a>
     ·
