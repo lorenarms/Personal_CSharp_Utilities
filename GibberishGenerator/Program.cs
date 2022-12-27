@@ -10,14 +10,6 @@
 //*******************************************************************
 
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using static System.Console;
 
 namespace GibberishGenerator
@@ -26,9 +18,9 @@ namespace GibberishGenerator
     {
         static void Main(string[] args)
         {
-            //TODO: add option for generating numbers or letters (capital or lowercase)
+            
             var generator = new RandomGenerator();
-            var writeLines = new WriteAllAlines();
+            var writeLines = new WriteAllLines();
             string textToWrite = "0";
             var inputFromMainMenu = 0;
             
@@ -39,26 +31,24 @@ namespace GibberishGenerator
                 string? str = ReadLine();
                 int.TryParse(str, out inputFromMainMenu);
 
-
+                
 
                 switch (inputFromMainMenu)
                 {
                     case 1:
-                        textToWrite = generator.RandomString(SetLengthOfString(), false);
-                        WriteLine("Your string: " + textToWrite);
+                        textToWrite = generator.RandomString(SetLengthOfString(), SetNumberOfLines(), false);
+                        WriteLine("Your string:\n" + textToWrite);
                         ReadKey();
                         break;
                     case 2:
-                        textToWrite = generator.RandomString(SetLengthOfString(), true);
-                        WriteLine("Your string: " + textToWrite);
+                        textToWrite = generator.RandomString(SetLengthOfString(), SetNumberOfLines(), true);
+                        WriteLine("Your string:\n" + textToWrite);
                         ReadKey();
 
                         break;
                     case 3:
-                        int min = SetMinimum();
-                        int max = SetMaximum(min);
-                        textToWrite = generator.RandomNumber(min, max);
-                        WriteLine("Your string: " + textToWrite);
+                        textToWrite = generator.RandomNumber(SetLengthOfString(), SetNumberOfLines());
+                        WriteLine("Your string:\n" + textToWrite);
                         ReadKey();
 
                         break;
@@ -70,28 +60,18 @@ namespace GibberishGenerator
                         Clear();
                         break;
                 }
-
+                
+                
                 
 
             }   while (inputFromMainMenu != 4);
-
             
-
-            //TODO: add options for length of lines and number of lines
-
-
-            List<string> linesToWriteToFile = new List<string> { };
-
-            
-            for (int i = 0; i < 20; i++)
-            {
-                var randomString = generator.RandomString(40);
-                linesToWriteToFile.Add(randomString);
-            }
-
+            //List<string> linesToWriteToFile = new List<string> { };
+           
             //TODO: add option to name file
 
-            Task writeToFile = writeLines.WriteStringsToFile(linesToWriteToFile);
+            //Task writeToFile = writeLines.WriteStringsToFile(linesToWriteToFile);
+            Task writeToFile = writeLines.WriteStringsToFile(textToWrite);
 
             //TODO: add loop to make a new file if desired
         }
@@ -113,83 +93,26 @@ namespace GibberishGenerator
             }
         }
 
-        public static int SetMinimum()
+        public static int SetNumberOfLines()
         {
-            int min = 0;
+            int lines = 1;
             Clear();
-            Write("Enter a minimum number: ");
+            Write("Number of lines to write: ");
             string? str = ReadLine();
-            int.TryParse(str, out min);
-            Write("\nMinimum value: " + min);
-            return min;
-        }
-
-        public static int SetMaximum(int min)
-        {
-            int max = 0;
-            Clear();
-            Write("Enter a maximum number: ");
-            string? str = ReadLine();
-            int.TryParse(str, out max);
-            if (max < min)
+            int.TryParse(str, out lines);
+            if (lines <= 0)
             {
-                min += 5;
-                WriteLine("That won't work; using default value of " + min);
-                return min;
+                lines = 1;
+                WriteLine("That won't work; using default value");
             }
-            Write("\nMaximum value: " + max);
-            return max;
-        }
-    }
-
-    public class RandomGenerator
-    {
-        // Instantiate random number generator.  
-        // It is better to keep a single Random instance 
-        // and keep using Next on the same instance.  
-        private readonly Random _random = new Random();
-
-        // Generates a random number within a range.      
-        public string RandomNumber(int min, int max)
-        {
-            return _random.Next(min, max).ToString();
-        }
-
-        // Generates a random string with a given size.    
-        public string RandomString(int size, bool lowerCase = true)
-        {
-            var builder = new StringBuilder(size);
-
-            // Unicode/ASCII Letters are divided into two blocks
-            // (Letters 65–90 / 97–122):   
-            // The first group containing the uppercase letters and
-            // the second group containing the lowercase.  
-
-            // char is a single Unicode character  
-            char offset = lowerCase ? 'a' : 'A';
-            const int lettersOffset = 26; // A...Z or a..z: length = 26  
-
-            for (var i = 0; i < size; i++)
-            {
-                var @char = (char)_random.Next(offset, offset + lettersOffset);
-                builder.Append(@char);
-            }
-
-            return lowerCase ? builder.ToString().ToLower() : builder.ToString();
-        }
-
-    }
-
-    class WriteAllAlines
-    {
-        public async Task WriteStringsToFile(List<string> input)
-        {
-           
-            // writes a file to the current program directory, wherever that is
-            await File.WriteAllLinesAsync(@".\RandomTextWritten.txt", input);
             
+            return lines;
         }
     }
+
+
+
+   
 }
 
 
