@@ -12,7 +12,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
@@ -24,10 +27,58 @@ namespace GibberishGenerator
         static void Main(string[] args)
         {
             //TODO: add option for generating numbers or letters (capital or lowercase)
-            //TODO: add options for length of lines and number of lines
-
             var generator = new RandomGenerator();
             var writeLines = new WriteAllAlines();
+            string textToWrite = "0";
+            var inputFromMainMenu = 0;
+            
+            do
+            {
+                Clear();
+                Write("CHOOSE A TYPE OF STRING:\n1: Capital letters only\n2: Lowercase letters only\n3: Numbers only\n4: Exit\n");
+                string? str = ReadLine();
+                int.TryParse(str, out inputFromMainMenu);
+
+
+
+                switch (inputFromMainMenu)
+                {
+                    case 1:
+                        textToWrite = generator.RandomString(SetLengthOfString(), false);
+                        WriteLine("Your string: " + textToWrite);
+                        ReadKey();
+                        break;
+                    case 2:
+                        textToWrite = generator.RandomString(SetLengthOfString(), true);
+                        WriteLine("Your string: " + textToWrite);
+                        ReadKey();
+
+                        break;
+                    case 3:
+                        int min = SetMinimum();
+                        int max = SetMaximum(min);
+                        textToWrite = generator.RandomNumber(min, max);
+                        WriteLine("Your string: " + textToWrite);
+                        ReadKey();
+
+                        break;
+                    case 4:
+                        break;
+                    default:
+                        WriteLine("That is not a valid response, please try again (press 'enter')");
+                        ReadKey();
+                        Clear();
+                        break;
+                }
+
+                
+
+            }   while (inputFromMainMenu != 4);
+
+            
+
+            //TODO: add options for length of lines and number of lines
+
 
             List<string> linesToWriteToFile = new List<string> { };
 
@@ -44,6 +95,51 @@ namespace GibberishGenerator
 
             //TODO: add loop to make a new file if desired
         }
+
+        public static int SetLengthOfString()
+        {
+            Clear();
+            Write("Enter a length for the string: ");
+            string? str = ReadLine();
+            int.TryParse(str, out int stringLength);
+            if (stringLength != 0)
+            {
+                return stringLength;
+            }
+            else
+            {
+                WriteLine("That is not valid; default of '5' applied");
+                return 5;
+            }
+        }
+
+        public static int SetMinimum()
+        {
+            int min = 0;
+            Clear();
+            Write("Enter a minimum number: ");
+            string? str = ReadLine();
+            int.TryParse(str, out min);
+            Write("\nMinimum value: " + min);
+            return min;
+        }
+
+        public static int SetMaximum(int min)
+        {
+            int max = 0;
+            Clear();
+            Write("Enter a maximum number: ");
+            string? str = ReadLine();
+            int.TryParse(str, out max);
+            if (max < min)
+            {
+                min += 5;
+                WriteLine("That won't work; using default value of " + min);
+                return min;
+            }
+            Write("\nMaximum value: " + max);
+            return max;
+        }
     }
 
     public class RandomGenerator
@@ -54,9 +150,9 @@ namespace GibberishGenerator
         private readonly Random _random = new Random();
 
         // Generates a random number within a range.      
-        public int RandomNumber(int min, int max)
+        public string RandomNumber(int min, int max)
         {
-            return _random.Next(min, max);
+            return _random.Next(min, max).ToString();
         }
 
         // Generates a random string with a given size.    
