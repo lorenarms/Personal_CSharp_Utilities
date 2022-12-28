@@ -1,4 +1,4 @@
-
+<a name="readme-top"></a>
 
 
 [![Contributors][contributors-shield]][contributors-url]
@@ -38,7 +38,7 @@
     <a href="https://github.com/lorenarms/SNHU_CS_370_Emerging_Trends_in_CS/tree/main/writeups"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="#usage">View Demo</a>
+    <a href="#usage">View Demos</a>
     ·
     <a href="https://github.com/lorenarms/SNHU_CS_465_Full-Stack-Development-I/issues">Report Bug</a>
     ·
@@ -57,20 +57,12 @@
         <li><a href="#how-i-developed-the-project">How I Developed The Project</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
+   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
@@ -127,11 +119,17 @@ These projects used the following frameworks, and will require them to run on yo
 
 You can find more of my C# work in the repository [C-Sharp: Mosh Advanced](https://github.com/lorenarms/Personal_CSharp_Mosh_Advanced). This repository goes with the above course.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- USAGE -->
 ## Usage
 
-<iframe class="video" src="https://www.youtube.com/embed/ltE63Xm3bh4" frameborder="0" allowfullscreen></iframe>
+<p>
+  To see more about each individual program, follow <a href="https://www.youtube.com/playlist?list=PLhz6FAyiBzY52eZyq6O7YqeNtioe5uDQi" target="blank">this link</a> to the playlist of videos I made that showcase each application. 
+</p>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- ROADMAP -->
