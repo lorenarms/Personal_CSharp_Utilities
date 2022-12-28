@@ -1,6 +1,6 @@
 ﻿//============================================================================
 // Name        : INTERACTIVE MENU BUILDER
-// Author      : Lorenzo Dominguez
+// Author      : Lawrence Artl
 // Version     : 1.2.0
 // Copyright   : Copyright © October 7, 2021
 // Description : Build an interactive menu for your C# program

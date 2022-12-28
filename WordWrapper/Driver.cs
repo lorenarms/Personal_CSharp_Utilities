@@ -12,25 +12,34 @@ namespace WordWrapper
     {
         public static void Main(string[] args)
         {
-            WordWrapper.Wrap("Will this wrap?");                    // test with a short phrase, will print as is
+            //WordWrapper.Wrap("Will this wrap?");                    // test with a short phrase, will print as is
 
-            var rand = new Random();                                // build a random string of numbers with spaces
+            //var rand = new Random();                                // build a random string of numbers with spaces
 
-            string newParagraph = "";
-            for (int i = 0; i < WindowWidth * 5; ++i)
-            {
-                string charToAdd = rand.Next(0, 9).ToString();
-                if (charToAdd.Equals("0"))
-                {
-                    charToAdd = " ";                                // string won't wrap without spaces!
-                                                                    // may add functionality for that later
-                }
+            //string newParagraph = "";
+            //for (int i = 0; i < WindowWidth * 5; ++i)
+            //{
+            //    string charToAdd = rand.Next(0, 9).ToString();
+            //    if (charToAdd.Equals("0"))
+            //    {
+            //        charToAdd = " ";                                // string won't wrap without spaces!
+            //                                                        // may add functionality for that later
+            //    }
 
-                newParagraph += charToAdd;
-            }
+            //    newParagraph += charToAdd;
+            //}
 
-            WordWrapper.Wrap(newParagraph);                         // test with longer string
+            string str =
+                System.IO.File
+                    .ReadAllText(@"C:\Users\Lawrence\Git Repos\Personal_CSharp_Utilities\WordWrapper\lorem.txt");
 
+            //WordWrapper.Wrap(newParagraph);                         // test with longer string
+
+            WriteLine(str + "\n\n");
+
+            ReadKey();
+
+            WordWrapper.Wrap(str);
             
             Console.WriteLine("Press Enter to Exit...");
             ReadKey();

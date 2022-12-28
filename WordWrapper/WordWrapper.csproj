@@ -39,5 +39,8 @@
     <Compile Include="Driver.cs" />
     <Compile Include="WordWrapper.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="lorem.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,7 +12,7 @@ namespace MenuBuilder
         {
             // menu options string
             string[] menuOptions =
-                {"Option 1", "Another options", "A third options", "This is another option", "The last option", "Exit"};
+                {"Option 1", "Another options", "A third options", "This is another option", "Here is the new option!" ,"The last option","Exit"};
 
             // build a menu object
             var newMenu = new Menu(menuOptions, 1, 1);
@@ -33,7 +33,7 @@ namespace MenuBuilder
             int selection = 0;
 
             // this is a good place to use a switch statement for options
-            while (selection != 6)      // make this your exit case
+            while (selection != 7)      // make this your exit case
             {
                 selection = newMenu.RunMenu();
                 switch (selection)

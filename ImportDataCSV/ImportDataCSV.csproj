@@ -36,6 +36,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="sheet1.csv" />
+    <None Include="sorted_sheet1.csv" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />

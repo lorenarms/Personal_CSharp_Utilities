@@ -1,6 +1,6 @@
 ﻿//============================================================================
 // Name        : Password Calculator
-// Author      : Lorenzo Dominguez
+// Author      : Lawrence Artl III
 // Version     : 1.1.0
 // Copyright   : Copyright © August 10, 2021
 // Description : Input a string privately

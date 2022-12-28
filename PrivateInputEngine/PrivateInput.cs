@@ -1,6 +1,6 @@
 ﻿//============================================================================
 // Name        : PRIVATE INPUT
-// Author      : Lorenzo Dominguez
+// Author      : Lawrence Artl III
 // Version     : 1.1.0
 // Copyright   : Copyright © October 7, 2021
 // Description : Input a string privately

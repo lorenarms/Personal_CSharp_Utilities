@@ -15,7 +15,7 @@ namespace TitleDraw
         
         public void DrawTitle()
         {
-            SetCursorPosition(0, _titleStartColumn);
+            SetCursorPosition(1, _titleStartColumn);
             Console.WriteLine(_titleToDraw);
         }
 

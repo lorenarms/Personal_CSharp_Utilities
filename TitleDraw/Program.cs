@@ -13,7 +13,12 @@ namespace TitleDraw
         {
             var newTitle = new TitleDraw();
 
-            newTitle.SetTitle("This is the Main Title");
+            Write("Type a title to center in the console: ");
+            string mainTitle = Console.ReadLine();
+
+            Clear();
+
+            newTitle.SetTitle(mainTitle);
 
             newTitle.DrawTitle();
             

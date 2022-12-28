@@ -26,7 +26,7 @@ namespace ImportDataCSV
             List<Customer> records;
 
             // 'using' keyword allows disposal of object after it goes out of scope, freeing resources
-            using (var streamReader = new StreamReader(@"C:\Users\dayar\source\repos\CS_Utilities\ImportDataCSV\sheet1.csv"))
+            using (var streamReader = new StreamReader(@"C:\Users\Lawrence\Git Repos\Personal_CSharp_Utilities\ImportDataCSV\sheet1.csv"))
             {
                 using (var csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
                 {
@@ -38,9 +38,11 @@ namespace ImportDataCSV
             var sh = new SortingHat();
 
             records.Sort(sh);
+
+            Console.WriteLine();
             c.PrintAll(records);
 
-            using (var streamWriter = new StreamWriter(@"C:\Users\dayar\source\repos\CS_Utilities\ImportDataCSV\sorted_sheet1.csv"))
+            using (var streamWriter = new StreamWriter(@"C:\Users\Lawrence\Git Repos\Personal_CSharp_Utilities\ImportDataCSV\sorted_sheet1.csv"))
             {
                 foreach (var r in records)
                 {
