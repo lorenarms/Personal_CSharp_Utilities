@@ -52,6 +52,9 @@ namespace PatternFinder
             
             var newSet = new StringAndPattern(str, pat);
             newSet.DrawPictureAndPattern();
+
+            WriteLine("Press 'enter' to check for pattern");
+            ReadKey();
             
             int[] location = newSet.FindPattern();
             if (location[0] == -1)
