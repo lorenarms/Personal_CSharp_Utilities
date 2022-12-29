@@ -126,7 +126,7 @@ You can find more of my C# work in the repository [C-Sharp: Mosh Advanced](https
 ## Usage
 
 <p>
-  To see more about each individual program, follow <a href="https://www.youtube.com/playlist?list=PLhz6FAyiBzY52eZyq6O7YqeNtioe5uDQi" target="_blank">this link</a> to the playlist of videos I made that showcase each application. 
+  To see more about each individual program, follow <a href="https://www.youtube.com/playlist?list=PLhz6FAyiBzY52eZyq6O7YqeNtioe5uDQi" target="_blank" rel="noopener noreferrer">this link</a> to the playlist of videos I made that showcase each application. 
 </p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
