@@ -35,14 +35,14 @@
   <p align="center">
     Lawrence Artl III
     <br />
-    <a href="https://github.com/lorenarms/SNHU_CS_370_Emerging_Trends_in_CS/tree/main/writeups"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/lorenarms/Personal_CSharp_Utilities/tree/main/writeups"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="#usage">View Demos</a>
     ·
-    <a href="https://github.com/lorenarms/SNHU_CS_465_Full-Stack-Development-I/issues">Report Bug</a>
+    <a href="https://github.com/lorenarms/Personal_CSharp_Utilities/issues">Report Bug</a>
     ·
-    <a href="https://github.com/lorenarms/SNHU_CS_465_Full-Stack-Development-I/issues">Request Feature</a>
+    <a href="https://github.com/lorenarms/Personal_CSharp_Utilities/issues">Request Feature</a>
   </p>
 </div>
 
@@ -126,7 +126,7 @@ You can find more of my C# work in the repository [C-Sharp: Mosh Advanced](https
 ## Usage
 
 <p>
-  To see more about each individual program, follow <a href="https://www.youtube.com/playlist?list=PLhz6FAyiBzY52eZyq6O7YqeNtioe5uDQi" target="blank">this link</a> to the playlist of videos I made that showcase each application. 
+  To see more about each individual program, follow <a href="https://www.youtube.com/playlist?list=PLhz6FAyiBzY52eZyq6O7YqeNtioe5uDQi" target="_blank">this link</a> to the playlist of videos I made that showcase each application. 
 </p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
