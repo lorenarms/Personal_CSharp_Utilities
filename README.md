@@ -1,7 +1,5 @@
 <a name="readme-top"></a>
 
-<a href="#" onclick='window.open("http://www.foracure.org.au");return false;'></a>
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
