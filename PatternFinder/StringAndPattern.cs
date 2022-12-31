@@ -45,7 +45,7 @@ namespace PatternFinder
         public int[] FindPattern()
         {
             
-            // flag for if patter is found
+            // flag for if pattern is found
             bool patternWasFound = false;
 
             // outer loop through 'rows' of main array
@@ -126,6 +126,7 @@ namespace PatternFinder
             int patHeight = _patternAsString[0].Length;
             int patRow = _locationOfPatternInPicture[0];
 
+            // print the 'picture' with the pattern-to-find in red-type
             WriteLine("LOCATION:");
             for (int i = 0; i < _pictureAsString.Length; i++)
             {

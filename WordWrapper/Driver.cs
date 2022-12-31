@@ -1,4 +1,19 @@
-﻿using System;
+﻿//============================================================================
+// Name        : WORDWRAPPER
+// Author      : Lawrence Artl III
+// Version     : 1.0.0
+// Copyright   : Copyright © 2021
+// Description : Input a long string of text with spaces and wrap the content
+//               appropriately in the console window
+//
+//               Good for text-based games or printing out long instructions
+// Website     : http://artllj.com
+// Github      : https://github.com/lorenarms
+//============================================================================
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -12,29 +27,12 @@ namespace WordWrapper
     {
         public static void Main(string[] args)
         {
-            //WordWrapper.Wrap("Will this wrap?");                    // test with a short phrase, will print as is
-
-            //var rand = new Random();                                // build a random string of numbers with spaces
-
-            //string newParagraph = "";
-            //for (int i = 0; i < WindowWidth * 5; ++i)
-            //{
-            //    string charToAdd = rand.Next(0, 9).ToString();
-            //    if (charToAdd.Equals("0"))
-            //    {
-            //        charToAdd = " ";                                // string won't wrap without spaces!
-            //                                                        // may add functionality for that later
-            //    }
-
-            //    newParagraph += charToAdd;
-            //}
-
+            // import text file with Lorem Ipsum text
             string str =
                 System.IO.File
                     .ReadAllText(@"C:\Users\Lawrence\Git Repos\Personal_CSharp_Utilities\WordWrapper\lorem.txt");
 
-            //WordWrapper.Wrap(newParagraph);                         // test with longer string
-
+            
             WriteLine(str + "\n\n");
 
             ReadKey();

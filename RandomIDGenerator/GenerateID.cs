@@ -26,22 +26,27 @@ namespace RandomIDGenerator
         private static int _idSize = 10;
         private static string[] _pool;
 
+        // generate a pool of characters to pull from, based on ASCII table
         private static void GeneratePool()
         {
             _pool = new string[62];
             var index = 0;
+
+            // numbers
             for (var i = 48; i < 58; i++)
             {
                 _pool[index] = char.ToString((char) i);
                 index++;
             }
 
+            // capital letters
             for (var i = 65; i < 91; i++)
             {
                 _pool[index] = char.ToString((char) i);
                 index++;
             }
 
+            // lowercase letters
             for (var i = 97; i < 123; i++)
             {
                 _pool[index] = char.ToString((char) i);
@@ -49,23 +54,29 @@ namespace RandomIDGenerator
             }
         }
 
+        // build a unique id from the pool
         public static string GenerateUniqueId()
         {
+            // singleton
             if (_pool == null)
             {
                 GeneratePool();
             }
 
+
             var s = "";
             var rnd = new Random();
             for (int i = 0; i < _idSize; i++)
             {
+                // generate a random number, use that as the index in '_pool', add that char to string 's'
                 if (_pool != null) s = s + _pool[rnd.Next(_pool.Length)];
             }
 
             return s;
         }
 
+        // method to determine how many possible id's can be generated from the given pool and id size
+        // used to determine if all id's have been exhausted (see 'table' method "AddAThing")
         public static double GetMaxEntries()
         {
             return Math.Pow(_pool.Length, _idSize);

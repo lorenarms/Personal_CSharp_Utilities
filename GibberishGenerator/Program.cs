@@ -1,13 +1,13 @@
-﻿//*******************************************************************
-//
-// GIBBERISH GENERATOR
-//
-// Author: Lawrence Artl III
-//
-// Purpose: generate a text file that contains random numbers,
-// uppercase letters, or lowercase letters.
-// 
-//*******************************************************************
+﻿//============================================================================
+// Name        : GIBBERISH GENERATOR
+// Author      : Lawrence Artl III
+// Version     : 1.0.0
+// Copyright   : Copyright © 2022
+// Description : Purpose: generate a text file that contains random numbers,
+//               uppercase letters, or lowercase letters.
+// Website     : http://artllj.com
+// Github      : https://github.com/lorenarms
+//============================================================================
 
 
 using static System.Console;

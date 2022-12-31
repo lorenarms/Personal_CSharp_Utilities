@@ -57,15 +57,17 @@ public class RandomGenerator
         // the second group containing the lowercase.  
 
         // char is a single Unicode character  
-        char offset = lowerCase ? 'a' : 'A';
-        const int lettersOffset = 26; // A...Z or a..z: length = 26  
+        char startingPointInAscii = lowerCase ? 'a' : 'A';
+        const int endingPointInAscii = 26; // A...Z or a..z: length = 26  
 
         for (var j = 0; j < lines; j++)
         {
             for (var i = 0; i < size; i++)
             {
-                var @char = (char)_random.Next(offset, offset + lettersOffset);
+
+                var @char = (char)_random.Next(startingPointInAscii, startingPointInAscii + endingPointInAscii);
                 builder.Append(@char);
+                
             }
 
             if (lines == 1)

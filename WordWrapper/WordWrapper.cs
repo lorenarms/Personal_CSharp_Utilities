@@ -18,7 +18,6 @@ namespace WordWrapper
     {
         public static void Wrap(string paragraphToWrap)
         {
-            //variables
             int windowWidth = Console.WindowWidth - 1;
             /*  get width of the window
                 must subtract '1' bc a line that goes to the very edge of the window
@@ -26,7 +25,7 @@ namespace WordWrapper
 
             // append a space to the text
             // find total lines of text
-            // find what text doesn't go to the end of the windwow
+            // find what text doesn't go to the end of the window
             paragraphToWrap += " ";                                         
             int totalLines = paragraphToWrap.Length / windowWidth;          
             int remainderLines = paragraphToWrap.Length % windowWidth;
@@ -42,10 +41,11 @@ namespace WordWrapper
                 while (totalLines > 0)                                      
                 {
 
-                    //initialize 'j' to be used outside of loop
+                    //'j' stores position of last appropriate space to cut line off
                     int j;
 
                     //loop to find best place to split line
+                    //start at the end of the line and work backwards
                     for (j = windowWidth; !paragraphToWrap[j].Equals(' '); j--)     
                                                                             
                     { }

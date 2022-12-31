@@ -1,26 +1,24 @@
-﻿//*******************************************************************
+﻿//============================================================================
+// Name        : PATTERN FINDER
+// Author      : Lawrence Artl III
+// Version     : 1.0.0
+// Copyright   : Copyright © 2022
+// Description : This program takes a text document as input
+//              The text in the document is assumed to be random
+//              lowercase letters in lines of equal length; each line
+//              is stored in a string array as an individual string
+//              to simulate rows of data in a picture file
 //
-// PATTERN FINDER
+//              The user enters a pattern to search for in the 'picture'
 //
-// Author: Lawrence Artl III
+//              The pattern input can only be one line, but multiple lines can
+//              make up the pattern if necessary (see code below for example)
 //
-// Purpose: 
-// This program takes a text document as input
-// The text in the document is assumed to be random
-// lowercase letters in lines of equal length; each line
-// is stored in a string array as an individual string
-// to simulate rows of data in a picture file
-//
-// The user enters a pattern to search for in the 'picture'
-//
-// The pattern input can only be one line, but multiple lines can
-// make up the pattern if necessary (see code below for example)
-//
-// This program is a solution to a question on an interview tech
-// assessment I took when applying for a job as a software developer
-//
-//*******************************************************************
-
+//              This program is a solution to a question on an interview tech
+//              assessment I took when applying for a job as a software developer
+// Website     : http://artllj.com
+// Github      : https://github.com/lorenarms
+//============================================================================
 
 
 

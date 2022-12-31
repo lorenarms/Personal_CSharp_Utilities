@@ -32,10 +32,13 @@ namespace RandomIDGenerator
         public void AddThing()
         {
             var id = GenerateId.GenerateUniqueId();
+            // check that 1: id is not in table and 2: number of id's in table does not
+            // exceed number of id's possible with given pool and id size
             while (_t.ContainsKey(id) && _t.Count < GenerateId.GetMaxEntries())
             {
                 id = GenerateId.GenerateUniqueId();
                 
+                // TODO: add logic to change id size if table is 'full' (all id's have been exhausted)
             }
             var thing = new Thing(id);
             Console.WriteLine("ID: " + thing.GetId());

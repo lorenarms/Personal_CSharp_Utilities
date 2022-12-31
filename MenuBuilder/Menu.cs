@@ -4,6 +4,8 @@
 // Version     : 1.2.0
 // Copyright   : Copyright © October 7, 2021
 // Description : Build an interactive menu for your C# program
+// Website     : http://artllj.com
+// Github      : https://github.com/lorenarms
 //============================================================================
 
 using System;

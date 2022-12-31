@@ -1,7 +1,18 @@
-﻿//
+﻿//*******************************************************************
+//
+// CSV IMPORTER and SORTER
+//
+// Author: Lawrence Artl III
+//
+// Purpose: import a csv file and sort, save as a new file
+// 
+//*******************************************************************
+//
 // Use 'Install-Package CsvHelper -Version 27.2.1' in Package Manager Console
 // make sure to target the correct project!
 //
+//*******************************************************************
+
 
 using System;
 using System.Collections.Generic;

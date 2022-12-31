@@ -4,7 +4,11 @@
 // Version     : 1.1.0
 // Copyright   : Copyright © October 7, 2021
 // Description : Input a string privately
+// Website     : http://artllj.com
+// Github      : https://github.com/lorenarms
 //============================================================================
+
+
 
 using System;
 using System.Collections.Generic;

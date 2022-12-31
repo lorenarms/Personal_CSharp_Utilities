@@ -1,4 +1,15 @@
-﻿using System;
+﻿//============================================================================
+// Name        : TITLE DRAW
+// Author      : Lawrence Artl III
+// Version     : 1.0.0
+// Copyright   : Copyright © 2021
+// Description : Write a line centered in the console
+// Website     : http://artllj.com
+// Github      : https://github.com/lorenarms
+//============================================================================
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

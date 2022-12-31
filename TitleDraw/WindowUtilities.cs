@@ -9,6 +9,7 @@ namespace TitleDraw
 {
     class WindowUtilities
     {
+        // change window size
         public static void SetConsoleWindowSize(int width, int height)
         {
             WindowWidth = width;
@@ -20,12 +21,14 @@ namespace TitleDraw
             return WindowWidth;
         }
 
+        // change title color and background
         public static void SetConsoleTextColor(ConsoleColor foreground, ConsoleColor background)
         {
             ForegroundColor = foreground;
             BackgroundColor = background;
         }
 
+        // remove blinking cursor
         public static void ResetCursorVisible()
         {
             CursorVisible = CursorVisible != true;

@@ -1,4 +1,18 @@
-﻿using System;
+﻿//============================================================================
+// Name        : HASHTABLE and RANDOM ID GENERATOR
+// Author      : Lawrence Artl III
+// Version     : 1.0.0
+// Copyright   : Copyright © 2021
+// Description : Build a hashtable, add 'things', print all items, and
+//              delete the table.
+//
+//              This program showcases the algorithm to generate unique ID's for
+//              a hashtable
+// Website     : http://artllj.com
+// Github      : https://github.com/lorenarms
+//============================================================================
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -24,6 +38,8 @@ namespace RandomIDGenerator
                 string[] menuOptions = {"Create a table" , "Add a thing" , "Print all things" , "Destroy table"
                                         , "Exit" };
 
+
+                // using the MenuBuilder class
                 var newMenu = new Menu(menuOptions, 1, 1);
 
                 newMenu.ModifyMenuLeftJustified(menuOptions);
@@ -64,6 +80,8 @@ namespace RandomIDGenerator
                         else table.EmptyTable();
                         break;
                     }
+
+                    // TODO: add menu option to change ID size to allow more entries in table
                 }
                 {
                     

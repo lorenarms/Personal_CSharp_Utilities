@@ -12,15 +12,18 @@ namespace TitleDraw
         private string _titleToDraw;
         private int _titleWidth;
         private int _titleStartColumn;
+        private int _titleStartRow = 1;
         
         public void DrawTitle()
         {
-            SetCursorPosition(1, _titleStartColumn);
+            SetCursorPosition(_titleStartRow, _titleStartColumn);
             Console.WriteLine(_titleToDraw);
         }
 
         
-
+        // find the width of the window and determine the center, then set the cursor
+        // to start at the column that would put the title in the exact center of the 
+        // window
         public void SetTitle(string title)
         {
             _titleToDraw = title;

@@ -3,7 +3,8 @@
 // Author      : Lawrence Artl III
 // Version     : 1.1.0
 // Copyright   : Copyright © August 10, 2021
-// Description : Input a string privately
+// Description : Input a string privately and calculate it's strength as a 
+//               a password
 //============================================================================
 
 using System;
