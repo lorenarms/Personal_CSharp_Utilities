@@ -128,6 +128,28 @@ You can find more of my C# work in the repository [C-Sharp: Mosh Advanced](https
   To see more about each individual program, follow <a href="https://www.youtube.com/playlist?list=PLhz6FAyiBzY52eZyq6O7YqeNtioe5uDQi" target="_blank" rel="noopener noreferrer">this link</a> to the playlist of videos I made that showcase each application. 
 </p>
 
+<p>Below are a few short animations of some of the programs found in this repository. Click the name of the program to be taken to the demo video.</p>
+
+
+<table>
+  <tr>
+    <td><img src="https://github.com/lorenarms/Personal_CSharp_Utilities/blob/master/demos/MenuBuilder.gif" alt="MenuBuilder" width="auto">
+    <td><img src="https://github.com/lorenarms/Personal_CSharp_Utilities/blob/master/demos/GibberishGenerator.gif" alt="GibberishGenerator" width="auto">
+  </tr>
+  <tr>
+    <td><a href="https://youtu.be/ojZ-mn9Jg6I" target="_blank">Menu Builder</a></td>
+    <td><a href="https://youtu.be/gP1iDjUaz3A" target="_blank">Random Text Generator</a></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/lorenarms/Personal_CSharp_Utilities/blob/master/demos/HashTable.gif" alt="Hashtable" width="auto">
+    <td><img src="https://github.com/lorenarms/Personal_CSharp_Utilities/blob/master/demos/PatternFinder.gif" alt="PatternFinder" width="auto">
+  </tr>
+  <tr>
+    <td><a href="https://youtu.be/dsL-O_15mnM" target="_blank">Hash Table with ID Generator</a></td>
+    <td><a href="https://youtu.be/fyRukAx4ufg" target="_blank">Pattern Finder</a></td>
+  </tr>
+</table>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
