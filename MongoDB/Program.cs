@@ -11,7 +11,7 @@ namespace MongoDB
         static void Main(string[] args)
         {
             // string connectionString = "mongodb://127.0.0.1:27017";
-            string connectionString = "";
+            string connectionString = "FOUND IN LOG FILE";
             string databaseName = "simple_db";
             string collectionName = "people";
 

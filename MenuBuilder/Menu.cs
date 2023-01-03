@@ -21,6 +21,7 @@ namespace MenuBuilder
     {
         //private string _prompt = "";
         private readonly string[] _options;
+        private readonly List<string> _menuList;
         private int _currentSelection;
         private int _drawMenuColumnPos;
         private readonly int _drawMenuRowPos;
@@ -29,6 +30,7 @@ namespace MenuBuilder
         public Menu(string[] options, int row, int col)
         {
             //_prompt = prompt;
+            _menuList = options.ToList();
             _options = options;
             _currentSelection = 1;
             _drawMenuRowPos = row;
@@ -52,7 +54,7 @@ namespace MenuBuilder
             int maximumWidth = 0;
             string space = "";
 
-            foreach (var t in _options)
+            foreach (var t in _menuList)
             {
                 if (t.Length > maximumWidth)
                 {
@@ -62,14 +64,14 @@ namespace MenuBuilder
 
             maximumWidth += 6;
 
-            for (int i = 0; i < _options.Length; i++)
+            for (int i = 0; i < _menuList.Count; i++)
             {
-                int spacesToAdd = maximumWidth - _options[i].Length;
+                int spacesToAdd = maximumWidth - _menuList[i].Length;
                 for (int j = 0; j < spacesToAdd; j++)
                 {
                     space += " ";
                 }
-                _options[i] = _options[i] + space;
+                _menuList[i] = _menuList[i] + space;
                 space = "";
             }
 
@@ -82,7 +84,7 @@ namespace MenuBuilder
             int maximumWidth = 0;
             string space = "";
 
-            foreach (var t in _options)
+            foreach (var t in _menuList)
             {
                 if (t.Length > maximumWidth)
                 {
@@ -93,30 +95,30 @@ namespace MenuBuilder
             maximumWidth += 6;     // make widest measurement wider by 10
                                     // modify this number to make menu wider / narrower
 
-            for (int i = 0; i < _options.Length; i++)
+            for (int i = 0; i < _menuList.Count; i++)
             {
-                if (_options[i].Length % 2 != 0)
+                if (_menuList[i].Length % 2 != 0)
                 {
-                    _options[i] += " ";     // make all menu items even num char wide
+                    _menuList[i] += " ";     // make all menu items even num char wide
                 }
 
-                var minimumWidth = maximumWidth - _options[i].Length;
+                var minimumWidth = maximumWidth - _menuList[i].Length;
                 minimumWidth /= 2;
                 for (int j = 0; j < minimumWidth; j++)
                 {
                     space += " ";
                 }
 
-                _options[i] = space + _options[i] + space;      // add spaces on either side of each    
+                _menuList[i] = space + _menuList[i] + space;      // add spaces on either side of each    
                 space = "";                             // menu item
             }
 
-            for (int i = 0; i < _options.Length; i++)
+            for (int i = 0; i < _menuList.Count; i++)
             {
-                if (_options[i].Length < maximumWidth)      // if any menu item isn't as wide as
+                if (_menuList[i].Length < maximumWidth)      // if any menu item isn't as wide as
                                                         // the max width, add 1 space
                 {
-                    _options[i] += " ";
+                    _menuList[i] += " ";
                 }
             }
 
@@ -174,14 +176,14 @@ namespace MenuBuilder
                     _currentSelection--;
                     if (_currentSelection < 1)
                     {
-                        _currentSelection = _options.Length;
+                        _currentSelection = _menuList.Count;
                     }
 
                 }
                 else if (keyPressedCode == 11)  // down arrow
                 {
                     _currentSelection++;
-                    if (_currentSelection > _options.Length)
+                    if (_currentSelection > _menuList.Count)
                     {
                         _currentSelection = 1;
                     }
@@ -209,7 +211,7 @@ namespace MenuBuilder
         {
             //string leftPointer = "    ";
             //string rightPointer = "    ";
-            for (int i = 0; i < _options.Length; i++)
+            for (int i = 0; i < _menuList.Count; i++)
             {
                 SetCursorPosition(_drawMenuRowPos + i, _drawMenuColumnPos);
                 SetConsoleTextColor(ConsoleColor.White, ConsoleColor.Black);
@@ -220,7 +222,7 @@ namespace MenuBuilder
                     //rightPointer = " ◄  ";
 
                 }
-                Console.WriteLine(_options[i]);
+                Console.WriteLine(_menuList[i]);
                 //Console.WriteLine(leftPointer + _options[i] + rightPointer);
                 //leftPointer = "    ";
                 //rightPointer = "    ";
