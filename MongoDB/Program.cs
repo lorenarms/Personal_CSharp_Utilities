@@ -4,6 +4,7 @@ using static System.Console;
 
 
 
+
 namespace MongoDB
 {
     class Program
@@ -28,9 +29,21 @@ namespace MongoDB
             
             //List databases
             var dbList = dbClient.ListDatabases().ToList();
+            List<string> dbs = new List<string>();
             foreach (var db in dbList)
             {
-                WriteLine("Database Name: " + db);
+                //WriteLine("Database Name: " + db);
+                dbs.Add(db.ToString());
+            }
+
+            var menu = new Menu(dbs, 1, 1);
+            menu.ModifyMenuLeftJustified();
+            menu.CenterMenuToConsole();
+            var selection = menu.RunMenu();
+
+            if (selection == -1)
+            {
+                Environment.Exit(0);
             }
 
             //Select databases

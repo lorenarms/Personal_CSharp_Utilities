@@ -33,38 +33,44 @@ namespace MenuBuilder
             int selection = 0;
 
             // this is a good place to use a switch statement for options
-            while (selection != 7)      // make this your exit case
+            while (selection != 6)      // make this your exit case
             {
                 selection = newMenu.RunMenu();
-                switch (selection)
-                {
-                    case 1:
-                    {
-                        Console.WriteLine("You selected option 1!");
-                        //ReadKey();
-                        //Clear();
-                        break;
-                    }
-                    case 4:
-                    {
-                        Console.WriteLine("You picked the fourth option!");
-                        //ReadKey();
-                        //Clear();
-                        break;
-                    }
-                    case -1:
-                    {
-                        Environment.Exit(0);
-                        break;
-                    }
-                }
+                WriteLine(menuOptions[selection] + "                   ");
+
+                //switch (selection)
+                //{
+                //    case 0:
+                //    {
+
+                //        Console.WriteLine("You selected option 1!        ");
+                //        //ReadKey();
+                //        //Clear();
+                //        break;
+                //    }
+                //    case 3:
+                //    {
+                //        Console.WriteLine("You picked the fourth option!");
+                //        //ReadKey();
+                //        //Clear();
+                //        break;
+                //    }
+                //    case -1:
+                //    {
+                //        Environment.Exit(0);
+                //        break;
+                //    }
+                //}
+
             }
 
-            Console.WriteLine("Press Enter to Exit");
+            Console.WriteLine("Press Enter to Exit                     ");
             ReadKey();
 
 
 
         }
+
+        
     }
 }

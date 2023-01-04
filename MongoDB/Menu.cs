@@ -15,23 +15,21 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
 
-namespace MenuBuilder
+namespace MongoDB
 {
     class Menu
     {
         //private string _prompt = "";
-        private readonly string[] _options;
         private readonly List<string> _menuList;
         private int _currentSelection;
         private int _drawMenuColumnPos;
         private readonly int _drawMenuRowPos;
         private int _menuMaximumWidth;
 
-        public Menu(string[] options, int row, int col)
+        public Menu(List<string> menuList, int row, int col)
         {
             //_prompt = prompt;
-            _menuList = options.ToList();
-            _options = options;
+            _menuList = menuList;
             _currentSelection = 0;
             _drawMenuRowPos = row;
             _drawMenuColumnPos = col;
