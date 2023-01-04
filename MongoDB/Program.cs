@@ -39,6 +39,7 @@ namespace MongoDB
             var menu = new Menu(dbs, 1, 1);
             menu.ModifyMenuLeftJustified();
             menu.CenterMenuToConsole();
+            WriteLine("\nSelect a Database: ");
             var selection = menu.RunMenu();
 
             if (selection == -1)
@@ -47,8 +48,10 @@ namespace MongoDB
             }
 
             //Select databases
-            WriteLine("\nSelect a Database: ");
-            var database = dbClient.GetDatabase(ReadLine());
+            
+            var databaseSelected = dbs[selection];
+            
+            var database = dbClient.GetDatabase(databaseSelected);
 
             //WriteLine("The list of databases on this server is: ");
             //foreach (var db in dbList)
