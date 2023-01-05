@@ -39,6 +39,7 @@ namespace MongoDB
             var menu = new Menu(dbs, 1, 1);
             menu.ModifyMenuLeftJustified();
             menu.CenterMenuToConsole();
+            menu.SetCursorPosition(6, 1);
             WriteLine("\nSelect a Database: ");
             var selection = menu.RunMenu();
 
@@ -49,6 +50,7 @@ namespace MongoDB
 
             //Select databases
             
+
             var databaseSelected = dbs[selection];
             
             var database = dbClient.GetDatabase(databaseSelected);
