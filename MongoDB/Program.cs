@@ -87,5 +87,18 @@ namespace MongoDB
 
 
         }
+        
+        public static string getDatabaseNameFromList(string dbStringFromList, string startOfString, string endOfString){
+        
+            if (dbStringFromList.Contains(startOfString) && dbStringFromList.Contains(endOfString){
+                int start, end;
+                start = dbStringFromList.IndexOf(startOfString, 0) + startOfString.Length;
+                end = dbStringFromList.IndexOf(endOfString, start);
+                return dbStringFromList.Substring(start, end - start);
+            }
+            
+            return "",
+        
+        }
     }
 }
