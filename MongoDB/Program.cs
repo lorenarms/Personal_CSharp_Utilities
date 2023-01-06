@@ -21,25 +21,53 @@ namespace MongoDB
             // TODO: loop that returns to very beginning
 
 
-            // Get username and password
-            WriteLine("Enter the username: ");
-            var userName = ReadLine();
-            WriteLine("Enter the password: ");
-            var passWord = ReadLine();
+            MongoClient dbClient = null;
+            List<BsonDocument> dbList = null;
 
+            const int maxRetries = 3;
+            const string spacer = "                ";
 
-            // Build connection string and connect to Atlas
-            var connectionString = "mongodb+srv://" + userName + ":" + passWord + "@cluster0.cyqsq.mongodb.net/test";
-            MongoClient dbClient = new MongoClient(connectionString);
+            int retries = maxRetries;
+
+            while (maxRetries > 0 && dbList == null)
+            {
+                try
+                {
+                    // Get username and password
+                    WriteLine("Enter the username: ");
+                    var userName = ReadLine();
+                    WriteLine("Enter the password: ");
+                    var passWord = ReadLine();
+
+                    // Build connection string and connect to Atlas
+                    var connectionString = "mongodb+srv://" + userName + ":" + passWord + "@cluster0.cyqsq.mongodb.net/test";
+                    dbClient = new MongoClient(connectionString);
+                    dbList = dbClient.ListDatabases().ToList();
+                }
+                catch (Exception e)
+                {
+                    retries--;
+                    Clear();
+                    WriteLine("Please try again...");
+                    if (retries < 1)
+                    {
+                        WriteLine(e);
+                        throw;
+
+                    }
+                }
+            }
+
+            
             Clear();
 
 
-            
+            // main program loop
             while (true)
             {
                 // List databases
-                var dbList = dbClient.ListDatabases().ToList();
-                List<string> dbListAsList = new List<string>();
+                dbList = dbClient.ListDatabases().ToList();
+                var dbListAsList = new List<string>();
                 foreach (var db in dbList)
                 {
                     dbListAsList.Add(GetDatabaseNameFromList(db.ToString()));
@@ -51,7 +79,7 @@ namespace MongoDB
                 var dbMenu = new Menu(dbListAsList, 1, 10);
                 dbMenu.ModifyMenuLeftJustified();
                 dbMenu.SetCursorPosition(6, 0);
-                WriteLine("\nSelect a Database: ");
+                WriteLine("\nSelect a Database: " + spacer);
 
                 // Select databases
                 var selection = dbMenu.RunMenu();
@@ -65,20 +93,22 @@ namespace MongoDB
                 // database selected, report to user
                 var databaseSelected = dbListAsList[selection].Trim();
                 SetCursorPosition(7, 0);
-                WriteLine("DB Selected: " + databaseSelected);
+                WriteLine("DB Selected: " + databaseSelected + spacer);
                 ReadKey();
                 Clear();
+
+
+                
 
                 while (true)
                 {
 
-                    // select the database from the server, get the collections in the database
                     var database = dbClient.GetDatabase(databaseSelected);
                     var collList = database.ListCollectionNames().ToList();
                     var collectionMenu = new Menu(collList, 1, 10);
 
                     selection = collectionMenu.RunMenu();
-                    WriteLine("\nSelect a Collection: ");
+                    WriteLine("\nSelect a Collection: " + spacer);
                     if (selection == -1)
                     {
                         Clear();
@@ -97,23 +127,15 @@ namespace MongoDB
                         WriteLine("Document: " + document);
                     }
 
+                    
                     //WriteLine("\n\nFirst Document: ");
                     //WriteLine(documents.ToString());
 
                 } 
-
                 
 
-
             } 
-
             
-
-
-            
-
-
-
         }
         
         public static string GetDatabaseNameFromList(string dbStringFromList)
