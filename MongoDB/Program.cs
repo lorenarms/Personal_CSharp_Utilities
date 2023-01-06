@@ -29,6 +29,8 @@ namespace MongoDB
             
             //List databases
             var dbList = dbClient.ListDatabases().ToList();
+            
+
             List<string> dbs = new List<string>();
             foreach (var db in dbList)
             {
@@ -39,6 +41,8 @@ namespace MongoDB
             var menu = new Menu(dbs, 1, 1);
             menu.ModifyMenuLeftJustified();
             menu.CenterMenuToConsole();
+            menu.SetCursorPosition(6, 1);
+            WriteLine("\nSelect a Database: ");
             var selection = menu.RunMenu();
 
             if (selection == -1)
@@ -47,8 +51,14 @@ namespace MongoDB
             }
 
             //Select databases
-            WriteLine("\nSelect a Database: ");
-            var database = dbClient.GetDatabase(ReadLine());
+            
+            WriteLine("DB Selected: " + getDatabaseNameFromList(dbs[selection]));
+
+            var databaseSelected = dbs[selection];
+            
+            //var database = dbClient.GetDatabase(databaseSelected);
+
+            var db = dbClient.GetDatabase(databaseSelected);
 
             //WriteLine("The list of databases on this server is: ");
             //foreach (var db in dbList)
@@ -57,14 +67,14 @@ namespace MongoDB
             //}
 
             Clear();
-            var collList = database.ListCollectionNames().ToList();
+            var collList = db.ListCollectionNames().ToList();
             foreach (var coll in collList)
             {
                 WriteLine("Collection Name: " + coll);
             }
 
             WriteLine("\nSelect a Collection: ");
-            var collection = database.GetCollection<BsonDocument>(ReadLine());
+            var collection = db.GetCollection<BsonDocument>(ReadLine());
 
             Clear();
             //var collection = database.GetCollection<BsonDocument>("col");
@@ -83,6 +93,19 @@ namespace MongoDB
 
 
 
+        }
+        
+        public static string getDatabaseNameFromList(string dbStringFromList, string startOfString, string endOfString){
+        
+            if (dbStringFromList.Contains(startOfString) && dbStringFromList.Contains(endOfString){
+                int start, end;
+                start = dbStringFromList.IndexOf(startOfString, 0) + startOfString.Length;
+                end = dbStringFromList.IndexOf(endOfString, start);
+                return dbStringFromList.Substring(start, end - start);
+            }
+            
+            return "",
+        
         }
     }
 }
