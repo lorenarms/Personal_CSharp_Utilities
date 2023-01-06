@@ -34,8 +34,8 @@ namespace MongoDB
             Clear();
 
 
-            bool quit = true;
-            while (quit)
+            
+            while (true)
             {
                 // List databases
                 var dbList = dbClient.ListDatabases().ToList();
@@ -57,7 +57,8 @@ namespace MongoDB
                 var selection = dbMenu.RunMenu();
                 if (selection == -1)
                 {
-                    quit = false;
+                    Clear();
+                    break;
                 }
 
 
@@ -68,7 +69,7 @@ namespace MongoDB
                 ReadKey();
                 Clear();
 
-                while (quit)
+                while (true)
                 {
 
                     // select the database from the server, get the collections in the database
@@ -80,7 +81,8 @@ namespace MongoDB
                     WriteLine("\nSelect a Collection: ");
                     if (selection == -1)
                     {
-                        quit = true;
+                        Clear();
+                        break;
                     }
 
                     var collectionSelected = database.GetCollection<BsonDocument>(collList[selection]);
