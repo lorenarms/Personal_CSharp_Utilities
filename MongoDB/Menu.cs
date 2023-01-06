@@ -136,6 +136,7 @@ namespace MongoDB
             return WindowWidth;
         }
 
+
         public void SetConsoleTextColor(ConsoleColor foreground, ConsoleColor background)
         {
             ForegroundColor = foreground;
@@ -160,6 +161,7 @@ namespace MongoDB
             }
         }
 
+        
 
         // Engine to run the menu and relevant methods
         public int RunMenu()
@@ -207,8 +209,8 @@ namespace MongoDB
 
         private void DrawMenu()
         {
-            //string leftPointer = "    ";
-            //string rightPointer = "    ";
+            string leftPointer = "    ";
+            string rightPointer = "    ";
             for (int i = 0; i < _menuList.Count; i++)
             {
                 SetCursorPosition(_drawMenuRowPos + i, _drawMenuColumnPos);
@@ -216,14 +218,17 @@ namespace MongoDB
                 if (i == _currentSelection)
                 {
                     SetConsoleTextColor(ConsoleColor.Black, ConsoleColor.White);
-                    //leftPointer = "  ► ";
+                    leftPointer = "  ► ";
                     //rightPointer = " ◄  ";
 
                 }
-                Console.WriteLine(_menuList[i]);
-                //Console.WriteLine(leftPointer + _options[i] + rightPointer);
-                //leftPointer = "    ";
-                //rightPointer = "    ";
+                // comment out next line for standard menu, no pointers
+                //Console.WriteLine(_menuList[i]);
+
+                // comment out next line for menu with pointer
+                Console.WriteLine(leftPointer + _menuList[i] + rightPointer);
+                leftPointer = "    ";
+                rightPointer = "    ";
                 ResetColor();
             }
         }

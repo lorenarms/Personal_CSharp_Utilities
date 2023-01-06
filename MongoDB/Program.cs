@@ -12,100 +12,129 @@ namespace MongoDB
         static void Main(string[] args)
         {
 
-            // string connectionString = "mongodb://127.0.0.1:27017";
-            string databaseName = "simple_db";
-            string collectionName = "people";
+            //string connectionString = "mongodb://127.0.0.1:27017";
+            //string databaseName = "simple_db";
+            //string collectionName = "people";
             
-            //Get username and password
+
+            // TODO: error checking for db existence
+            // TODO: loop that returns to very beginning
+
+
+            // Get username and password
             WriteLine("Enter the username: ");
             var userName = ReadLine();
-
             WriteLine("Enter the password: ");
             var passWord = ReadLine();
-            //Build connection string and connect to Atlas
+
+
+            // Build connection string and connect to Atlas
             var connectionString = "mongodb+srv://" + userName + ":" + passWord + "@cluster0.cyqsq.mongodb.net/test";
             MongoClient dbClient = new MongoClient(connectionString);
             Clear();
-            
-            //List databases
-            var dbList = dbClient.ListDatabases().ToList();
-            
 
-            List<string> dbs = new List<string>();
-            foreach (var db in dbList)
+
+            bool quit = true;
+            while (quit)
             {
-                //WriteLine("Database Name: " + db);
-                dbs.Add(db.ToString());
-            }
+                // List databases
+                var dbList = dbClient.ListDatabases().ToList();
+                List<string> dbListAsList = new List<string>();
+                foreach (var db in dbList)
+                {
+                    dbListAsList.Add(GetDatabaseNameFromList(db.ToString()));
+                }
 
-            var menu = new Menu(dbs, 1, 1);
-            menu.ModifyMenuLeftJustified();
-            menu.CenterMenuToConsole();
-            menu.SetCursorPosition(6, 1);
-            WriteLine("\nSelect a Database: ");
-            var selection = menu.RunMenu();
 
-            if (selection == -1)
-            {
-                Environment.Exit(0);
-            }
+                // Build the menu, justify left, set position in window
+                // Give instructions to select a database
+                var dbMenu = new Menu(dbListAsList, 1, 10);
+                dbMenu.ModifyMenuLeftJustified();
+                dbMenu.SetCursorPosition(6, 0);
+                WriteLine("\nSelect a Database: ");
 
-            //Select databases
+                // Select databases
+                var selection = dbMenu.RunMenu();
+                if (selection == -1)
+                {
+                    quit = false;
+                }
+
+
+                // database selected, report to user
+                var databaseSelected = dbListAsList[selection].Trim();
+                SetCursorPosition(7, 0);
+                WriteLine("DB Selected: " + databaseSelected);
+                ReadKey();
+                Clear();
+
+                while (quit)
+                {
+
+                    // select the database from the server, get the collections in the database
+                    var database = dbClient.GetDatabase(databaseSelected);
+                    var collList = database.ListCollectionNames().ToList();
+                    var collectionMenu = new Menu(collList, 1, 10);
+
+                    selection = collectionMenu.RunMenu();
+                    WriteLine("\nSelect a Collection: ");
+                    if (selection == -1)
+                    {
+                        quit = true;
+                    }
+
+                    var collectionSelected = database.GetCollection<BsonDocument>(collList[selection]);
+                    var documents = collectionSelected.Find(new BsonDocument()).ToList();
+
+
+                    // clear the console, list all documents in collection
+                    Clear();
+                    WriteLine("Documents in collection " + collectionSelected.CollectionNamespace + "\n");
+                    foreach (var document in documents)
+                    {
+                        WriteLine("Document: " + document);
+                    }
+
+                    //WriteLine("\n\nFirst Document: ");
+                    //WriteLine(documents.ToString());
+
+                } 
+
+                
+
+
+            } 
+
             
-            WriteLine("DB Selected: " + getDatabaseNameFromList(dbs[selection]));
 
-            var databaseSelected = dbs[selection];
+
             
-            //var database = dbClient.GetDatabase(databaseSelected);
-
-            var db = dbClient.GetDatabase(databaseSelected);
-
-            //WriteLine("The list of databases on this server is: ");
-            //foreach (var db in dbList)
-            //{
-            //    WriteLine(db);
-            //}
-
-            Clear();
-            var collList = db.ListCollectionNames().ToList();
-            foreach (var coll in collList)
-            {
-                WriteLine("Collection Name: " + coll);
-            }
-
-            WriteLine("\nSelect a Collection: ");
-            var collection = db.GetCollection<BsonDocument>(ReadLine());
-
-            Clear();
-            //var collection = database.GetCollection<BsonDocument>("col");
-
-            //var documents = collection.Find(new BsonDocument()).FirstOrDefault();
-            var documents = collection.Find(new BsonDocument()).ToList();
-
-
-            foreach (var document in documents)
-            {
-                WriteLine("Document: " + document);
-            }
-
-                //WriteLine("\n\nFirst Document: ");
-                //WriteLine(documents.ToString());
 
 
 
         }
         
-        public static string getDatabaseNameFromList(string dbStringFromList, string startOfString, string endOfString){
-        
-            if (dbStringFromList.Contains(startOfString) && dbStringFromList.Contains(endOfString){
-                int start, end;
-                start = dbStringFromList.IndexOf(startOfString, 0) + startOfString.Length;
-                end = dbStringFromList.IndexOf(endOfString, start);
-                return dbStringFromList.Substring(start, end - start);
+        public static string GetDatabaseNameFromList(string dbStringFromList)
+        {
+
+            var str = dbStringFromList.Substring(12, dbStringFromList.Length - 12);
+            str = str.Substring(0, str.IndexOf("\"", StringComparison.Ordinal));
+
+            return str;
+
+        }
+
+        public static void SetCursorPosition(int row, int column)
+        {
+            if (row > 0 && row < WindowHeight)
+            {
+                CursorTop = row;
             }
-            
-            return "",
-        
+
+            if (column > 0 && column < WindowWidth)
+            {
+                CursorLeft = column;
+            }
         }
     }
 }
