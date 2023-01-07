@@ -39,6 +39,11 @@ namespace MongoDB
                     WriteLine("Enter the password: ");
                     var passWord = ReadLine();
 
+                    if (userName.ToLower().Equals("cancel") || passWord.ToLower().Equals("cancel"))
+                    {
+                        Environment.Exit(0);
+                    }
+
                     // Build connection string and connect to Atlas
                     var connectionString = "mongodb+srv://" + userName + ":" + passWord + "@cluster0.cyqsq.mongodb.net/test";
                     dbClient = new MongoClient(connectionString);
@@ -52,8 +57,8 @@ namespace MongoDB
                     if (retries < 1)
                     {
                         WriteLine(e);
-                        throw;
-
+                        Environment.Exit(0);
+                        
                     }
                 }
             }
