@@ -21,8 +21,7 @@ namespace MongoDB
             // TODO: loop that returns to very beginning
 
 
-            MongoClient dbClient = null;
-            List<BsonDocument> dbList = null;
+            List<BsonDocument>? dbList = null;
 
             const int maxRetries = 3;
             const string spacer = "                ";
@@ -39,15 +38,94 @@ namespace MongoDB
                     WriteLine("Enter the password: ");
                     var passWord = ReadLine();
 
-                    if (userName.ToLower().Equals("cancel") || passWord.ToLower().Equals("cancel"))
+                    if (userName != null && passWord != null && (userName.ToLower().Equals("cancel") || passWord.ToLower().Equals("cancel")))
                     {
                         Environment.Exit(0);
                     }
 
                     // Build connection string and connect to Atlas
                     var connectionString = "mongodb+srv://" + userName + ":" + passWord + "@cluster0.cyqsq.mongodb.net/test";
-                    dbClient = new MongoClient(connectionString);
+                    var dbClient = new MongoClient(connectionString);
                     dbList = dbClient.ListDatabases().ToList();
+
+                    Clear();
+
+
+                    // main program loop
+                    while (true)
+                    {
+                        // List databases
+                        dbList = dbClient.ListDatabases().ToList();
+                        var dbListAsList = new List<string>();
+                        foreach (var db in dbList)
+                        {
+                            dbListAsList.Add(GetDatabaseNameFromList(db.ToString()));
+                        }
+
+
+                        // Build the menu, justify left, set position in window
+                        // Give instructions to select a database
+                        var dbMenu = new Menu(dbListAsList, 1, 10);
+                        dbMenu.ModifyMenuLeftJustified();
+                        dbMenu.SetCursorPosition(6, 0);
+                        WriteLine("\nSelect a Database: " + spacer);
+
+                        // Select databases
+                        var selection = dbMenu.RunMenu();
+                        if (selection == -1)
+                        {
+                            Clear();
+                            break;
+                        }
+
+
+                        // database selected, report to user
+                        var databaseSelected = dbListAsList[selection].Trim();
+                        SetCursorPosition(7, 0);
+                        WriteLine("DB Selected: " + databaseSelected + spacer);
+                        ReadKey();
+                        Clear();
+
+
+
+
+                        while (true)
+                        {
+
+                            var database = dbClient.GetDatabase(databaseSelected);
+                            var collList = database.ListCollectionNames().ToList();
+                            var collectionMenu = new Menu(collList, 1, 10);
+
+                            selection = collectionMenu.RunMenu();
+                            WriteLine("\nSelect a Collection: " + spacer);
+                            if (selection == -1)
+                            {
+                                Clear();
+                                break;
+                            }
+
+                            var collectionSelected = database.GetCollection<BsonDocument>(collList[selection]);
+                            var documents = collectionSelected.Find(new BsonDocument()).ToList();
+
+
+                            // clear the console, list all documents in collection
+                            Clear();
+                            WriteLine("Documents in collection " + collectionSelected.CollectionNamespace + "\n");
+                            foreach (var document in documents)
+                            {
+                                WriteLine("Document: " + document);
+                            }
+
+
+                            //WriteLine("\n\nFirst Document: ");
+                            //WriteLine(documents.ToString());
+
+                        }
+
+
+                    }
+
+
                 }
                 catch (Exception e)
                 {
@@ -64,82 +142,7 @@ namespace MongoDB
             }
 
             
-            Clear();
-
-
-            // main program loop
-            while (true)
-            {
-                // List databases
-                dbList = dbClient.ListDatabases().ToList();
-                var dbListAsList = new List<string>();
-                foreach (var db in dbList)
-                {
-                    dbListAsList.Add(GetDatabaseNameFromList(db.ToString()));
-                }
-
-
-                // Build the menu, justify left, set position in window
-                // Give instructions to select a database
-                var dbMenu = new Menu(dbListAsList, 1, 10);
-                dbMenu.ModifyMenuLeftJustified();
-                dbMenu.SetCursorPosition(6, 0);
-                WriteLine("\nSelect a Database: " + spacer);
-
-                // Select databases
-                var selection = dbMenu.RunMenu();
-                if (selection == -1)
-                {
-                    Clear();
-                    break;
-                }
-
-
-                // database selected, report to user
-                var databaseSelected = dbListAsList[selection].Trim();
-                SetCursorPosition(7, 0);
-                WriteLine("DB Selected: " + databaseSelected + spacer);
-                ReadKey();
-                Clear();
-
-
-                
-
-                while (true)
-                {
-
-                    var database = dbClient.GetDatabase(databaseSelected);
-                    var collList = database.ListCollectionNames().ToList();
-                    var collectionMenu = new Menu(collList, 1, 10);
-
-                    selection = collectionMenu.RunMenu();
-                    WriteLine("\nSelect a Collection: " + spacer);
-                    if (selection == -1)
-                    {
-                        Clear();
-                        break;
-                    }
-
-                    var collectionSelected = database.GetCollection<BsonDocument>(collList[selection]);
-                    var documents = collectionSelected.Find(new BsonDocument()).ToList();
-
-
-                    // clear the console, list all documents in collection
-                    Clear();
-                    WriteLine("Documents in collection " + collectionSelected.CollectionNamespace + "\n");
-                    foreach (var document in documents)
-                    {
-                        WriteLine("Document: " + document);
-                    }
-
-                    
-                    //WriteLine("\n\nFirst Document: ");
-                    //WriteLine(documents.ToString());
-
-                } 
-                
-
-            } 
+            
             
         }
         
