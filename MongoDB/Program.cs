@@ -21,12 +21,15 @@ namespace MongoDB
             // TODO: loop that returns to very beginning
 
 
-            List<BsonDocument>? dbList = null;
+            List<BsonDocument> dbList = null;
 
             const int maxRetries = 3;
             const string spacer = "                ";
 
             int retries = maxRetries;
+            var currentTime = DateTime.Now;
+
+            WriteLine("MongoDB Atlas Access");
 
             while (maxRetries > 0 && dbList == null)
             {
@@ -38,13 +41,19 @@ namespace MongoDB
                     WriteLine("Enter the password: ");
                     var passWord = ReadLine();
 
-                    if (userName != null && passWord != null && (userName.ToLower().Equals("cancel") || passWord.ToLower().Equals("cancel")))
+                    if (userName != null &&
+                        passWord != null &&
+                        (userName.ToLower().Equals("cancel") ||
+                         passWord.ToLower().Equals("cancel")))
                     {
                         Environment.Exit(0);
                     }
 
+                    currentTime = DateTime.Now;
+
                     // Build connection string and connect to Atlas
-                    var connectionString = "mongodb+srv://" + userName + ":" + passWord + "@cluster0.cyqsq.mongodb.net/test";
+                    var connectionString = "mongodb+srv://" + userName + ":" + passWord +
+                                           "@cluster0.cyqsq.mongodb.net/test";
                     var dbClient = new MongoClient(connectionString);
                     dbList = dbClient.ListDatabases().ToList();
 
@@ -127,6 +136,30 @@ namespace MongoDB
 
 
                 }
+                catch (MongoAuthenticationException e)
+                {
+                    Clear();
+                    WriteLine("Authorization Failed, try again...");
+                    if (retries < 1)
+                    {
+                        WriteLine(e);
+                        Environment.Exit(0);
+
+                    }
+                }
+
+                catch (TimeoutException e)
+                {
+                    Clear();
+                    WriteLine("Timeout Exception: check your connection and try again...");
+                    if (retries < 1)
+                    {
+                        WriteLine(e);
+                        Environment.Exit(0);
+
+                    }
+                }
+
                 catch (Exception e)
                 {
                     retries--;
@@ -138,6 +171,8 @@ namespace MongoDB
                         Environment.Exit(0);
                         
                     }
+                    
+
                 }
             }
 
