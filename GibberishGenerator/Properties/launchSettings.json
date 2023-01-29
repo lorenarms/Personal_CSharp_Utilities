@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "GibberishGenerator": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

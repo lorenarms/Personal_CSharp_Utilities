@@ -36,9 +36,9 @@ namespace MongoDB
                 try
                 {
                     // Get username and password
-                    WriteLine("Enter the username: ");
+                    Write("Enter the username: ");
                     var userName = ReadLine();
-                    WriteLine("Enter the password: ");
+                    Write("Enter the password: ");
                     var passWord = ReadLine();
 
                     if (userName != null &&
