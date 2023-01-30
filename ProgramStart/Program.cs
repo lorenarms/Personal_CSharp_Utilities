@@ -37,6 +37,8 @@ internal class Program
         process.StandardInput.WriteLine(@"psexec \\192.168.0.171 -u lawrence.artl@gmail.com -p H1pp0501@mic -s -d -i 1 C:\Users\lawre\OneDrive\Desktop\play_vid.bat");
         process.StandardInput.WriteLine("exit");
 
+
+
         process.WaitForExit();
     }
 }
