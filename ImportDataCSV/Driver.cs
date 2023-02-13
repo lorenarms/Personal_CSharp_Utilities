@@ -28,35 +28,46 @@ namespace ImportDataCSV
     {
         static void Main(string[] args)
         {
-            var c = new Customer();
-            List<Customer> records;
+            var c = new Log_Row();
+            var title = string.Empty;
+            List<Log_Row> records;
 
             // 'using' keyword allows disposal of object after it goes out of scope, freeing resources
-            using (var streamReader = new StreamReader(@"C:\Users\Lawrence\Git Repos\Personal_CSharp_Utilities\ImportDataCSV\sheet1.csv"))
+            using (var streamReader = new StreamReader(@".\log.csv"))   // './file.csv' only works on files in 'debug' folder with .exe of program
             {
                 using (var csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
                 {
-                    records = csvReader.GetRecords<Customer>().ToList();
+                    streamReader.ReadLine();
+                    title = streamReader.ReadLine();
+                    records = csvReader.GetRecords<Log_Row>().ToList();
                 }
             }
-            c.PrintAll(records);
+            //c.PrintAll(records);
 
             var sh = new SortingHat();
 
-            records.Sort(sh);
+            //records.Sort(sh);
+
+            int count = 1;
+            foreach (var record in records)
+            {
+                Console.WriteLine($@"{count}: {record.Day} {record.RoomTime} : {record.Puzzle} Text: {record.Text}");
+                count++;
+            }
+            
 
             Console.WriteLine();
-            c.PrintAll(records);
+            //c.PrintAll(records);
 
             using (var streamWriter = new StreamWriter(@"C:\Users\Lawrence\Git Repos\Personal_CSharp_Utilities\ImportDataCSV\sorted_sheet1.csv"))
             {
                 foreach (var r in records)
                 {
-                    var first = r.FirstName;
-                    var second = r.LastName;
-                    var third = r.IdNumber;
-                    var line = string.Format("{0},{1},{2}", first, second, third);
-                    streamWriter.WriteLine(line);
+                    //var first = r.FirstName;
+                    //var second = r.LastName;
+                    //var third = r.IdNumber;
+                    //var line = string.Format("{0},{1},{2}", first, second, third);
+                    //streamWriter.WriteLine(line);
                     streamWriter.Flush();
                 }
 

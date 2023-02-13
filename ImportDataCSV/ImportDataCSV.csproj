@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="log.csv" />
     <None Include="packages.config" />
     <None Include="sheet1.csv" />
     <None Include="sorted_sheet1.csv" />
@@ -42,6 +43,7 @@
     <Compile Include="Customer.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="Driver.cs" />
+    <Compile Include="Log_Row.cs" />
     <Compile Include="SortingHat.cs" />
   </ItemGroup>
   <ItemGroup>
