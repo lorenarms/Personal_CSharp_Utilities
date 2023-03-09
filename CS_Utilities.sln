@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GibberishGenerator", "Gibbe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDB", "MongoDB\MongoDB.csproj", "{CAA31BF1-592A-4D4C-AFA3-B1150824CFAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramStart", "ProgramStart\ProgramStart.csproj", "{3B4B54F4-418E-489D-A781-75F8D9615646}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgramStart", "ProgramStart\ProgramStart.csproj", "{3B4B54F4-418E-489D-A781-75F8D9615646}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateAndTime", "DateAndTime\DateAndTime.csproj", "{AAC96693-83FA-49BF-84BC-CF9BCF6A9036}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{3B4B54F4-418E-489D-A781-75F8D9615646}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B4B54F4-418E-489D-A781-75F8D9615646}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B4B54F4-418E-489D-A781-75F8D9615646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAC96693-83FA-49BF-84BC-CF9BCF6A9036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAC96693-83FA-49BF-84BC-CF9BCF6A9036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAC96693-83FA-49BF-84BC-CF9BCF6A9036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAC96693-83FA-49BF-84BC-CF9BCF6A9036}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
