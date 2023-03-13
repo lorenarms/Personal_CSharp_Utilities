@@ -17,11 +17,11 @@ namespace TextWriter
             int start = 0;
             string file = $@"C:\Users\PanIQ Vegas Office\Desktop\Technician\sqlInsert.txt";
 
-            Console.WriteLine("How many lines to generate?");
+            Console.Write("How many lines to generate? ");
             string? userInput = Console.ReadLine();
             count = int.Parse(userInput);
 
-            Console.WriteLine("Where to start?");
+            Console.Write("Where to start? ");
             string? userStart = Console.ReadLine();
             start = int.Parse(userStart);
 

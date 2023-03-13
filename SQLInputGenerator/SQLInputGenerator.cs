@@ -45,22 +45,13 @@ namespace TextWriter
         };
         private List<string> _input = new List<string>();
 
-
         public List<string> GetInput()
         {
-
             return _input;
         }
 
         public void GeneratInput(int start, int i)
         {
-
-            //INSERT INTO `log` VALUES(1,
-            //'Wizard', 'Thursday', '9', 'March', '2023', '07:40:48',
-            //'Dragon to Cat', '5',
-            //'The cat should appear', 'Cat did not appear',
-            //'Informed players they won');
-
             for(int j = 0; j < i; j++)
             {
                 
@@ -85,7 +76,6 @@ namespace TextWriter
                 start++;
             }
 
-            
         }
 
 
@@ -112,7 +102,7 @@ namespace TextWriter
 
         public string GetTime()
         {
-            return $@"{_now.AddHours(Random.Shared.Next(0, 12)).Hour:00}:{_now.AddMinutes(Random.Shared.Next(0, 59)).Minute:00}:{_now.AddSeconds(Random.Shared.Next(0, 59)).Second:00}";
+            return $@"{_now.AddHours(Random.Shared.Next(0, 24)).Hour:00}:{_now.AddMinutes(Random.Shared.Next(0, 59)).Minute:00}:{_now.AddSeconds(Random.Shared.Next(0, 59)).Second:00}";
         }
 
     }
