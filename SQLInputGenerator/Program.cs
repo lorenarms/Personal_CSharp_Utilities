@@ -15,7 +15,8 @@ namespace TextWriter
         {
             int count = 3;
             int start = 0;
-            string file = $@"C:\Users\PanIQ Vegas Office\Desktop\Technician\sqlInsert.txt";
+            //string file = $@"C:\Users\PanIQ Vegas Office\Desktop\Technician\sqlInsert.txt";
+            string file = $@"C:\Users\lawre\OneDrive\Desktop\New folder\sqlInsert.txt";
 
             Console.Write("How many lines to generate? ");
             string? userInput = Console.ReadLine();
@@ -36,7 +37,17 @@ namespace TextWriter
             foreach (string inputItem in input)
             {
                 //Console.WriteLine(inputItem);
-                File.AppendAllText(file, inputItem);
+                try
+                {
+                    File.AppendAllText(file, inputItem);
+
+                }
+                catch (Exception ex)
+                {
+                    ex.GetBaseException();
+                    Console.WriteLine(ex.Message.ToString());
+                }
+                
             }
 
             Console.WriteLine("File written successfully!");
