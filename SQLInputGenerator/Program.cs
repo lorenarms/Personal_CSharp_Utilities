@@ -15,21 +15,18 @@ namespace TextWriter
         {
             int count = 3;
             int start = 0;
-            string file = $@"C:\Users\PanIQ Vegas Office\Desktop\Technician\sqlInsert.txt";
+            string file = $@"C:\Users\Lawrence\Desktop\sqlInsert.txt";
 
             Console.Write("How many lines to generate? ");
             string? userInput = Console.ReadLine();
             count = int.Parse(userInput);
 
-            Console.Write("Where to start? ");
-            string? userStart = Console.ReadLine();
-            start = int.Parse(userStart);
-
+            
             var SQLInputGenerator = new SQLInputGenerator();
 
 
 
-            SQLInputGenerator.GeneratInput(start, count);
+            SQLInputGenerator.GenerateInput(count);
 
             List<string> input = SQLInputGenerator.GetInput();
 

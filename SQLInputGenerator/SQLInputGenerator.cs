@@ -50,18 +50,15 @@ namespace TextWriter
             return _input;
         }
 
-        public void GeneratInput(int start, int i)
+        public void GenerateInput(int i)
         {
             for(int j = 0; j < i; j++)
             {
                 
                 StringBuilder sb = new StringBuilder();
-                sb.Append($@"INSERT INTO `log` VALUES ({start},");
+                sb.Append($@"INSERT INTO `log` VALUES (DEFAULT,");
                 sb.Append($@"'{_rooms[Random.Shared.Next(_rooms.Length)]}',");
-                sb.Append($@"'{_day[Random.Shared.Next(_day.Length)]}',");
-                sb.Append($@"'{Random.Shared.Next(1, 30)}',");
-                sb.Append($@"'{_month[Random.Shared.Next(_month.Length)]}',");
-                sb.Append($@"'{_year[Random.Shared.Next(_year.Length)]}',");
+                sb.Append($@"'{_ct.GetDate()}',");
                 sb.Append($@"'{_ct.GetTime()}',");
                 sb.Append($@"'{_puzzle[Random.Shared.Next(_puzzle.Length)]}',");
                 sb.Append($@"'{Random.Shared.Next(1, 15)}',");
@@ -72,8 +69,7 @@ namespace TextWriter
                 var input = sb.ToString();
 
                 _input.Add(input);
-
-                start++;
+                
             }
 
         }
@@ -85,24 +81,24 @@ namespace TextWriter
     {
         public CurrentTime(DateTime now)
         {
-            Day = now.Day.ToString();
-            Month = now.ToString("MMMM");
-            Year = now.Year.ToString("0000");
-            DayOfWeek = now.DayOfWeek.ToString();
-            Time = $@"{now.Hour:00}:{now.Minute:00}:{now.Second:00}";
-            _now= now;
+	        Date = now.ToString("yyyy-MM-dd");
+	        Time = now.ToString("HH:mm:ss");
         }
 
-        public DateTime _now;
-        public string Day { get; set; }
-        public string Month { get; set; }
-        public string Year { get; set; }
-        public string DayOfWeek { get; set; }
+        public DateTime Now;
+        public string Date{ get; set; }
         public string Time { get; set; }
 
         public string GetTime()
         {
-            return $@"{_now.AddHours(Random.Shared.Next(0, 24)).Hour:00}:{_now.AddMinutes(Random.Shared.Next(0, 59)).Minute:00}:{_now.AddSeconds(Random.Shared.Next(0, 59)).Second:00}";
+            return 
+	            $@"{Now.AddHours(Random.Shared.Next(0, 24)).Hour:00}:{Now.AddMinutes(Random.Shared.Next(0, 59)).Minute:00}:{Now.AddSeconds(Random.Shared.Next(0, 59)).Second:00}";
+        }
+
+        public string GetDate()
+        {
+	        return
+		        $@"{Now.AddYears(Random.Shared.Next(2020, 2023)).Year:0000}-{Now.AddMonths(Random.Shared.Next(0, 11)).Month:00}-{Now.AddDays(Random.Shared.Next(0, 30)).Day:00}";
         }
 
     }
