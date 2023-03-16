@@ -33,7 +33,17 @@ namespace TextWriter
             foreach (string inputItem in input)
             {
                 //Console.WriteLine(inputItem);
-                File.AppendAllText(file, inputItem);
+                try
+                {
+                    File.AppendAllText(file, inputItem);
+
+                }
+                catch (Exception ex)
+                {
+                    ex.GetBaseException();
+                    Console.WriteLine(ex.Message.ToString());
+                }
+                
             }
 
             Console.WriteLine("File written successfully!");

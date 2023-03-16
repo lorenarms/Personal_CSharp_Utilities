@@ -39,13 +39,13 @@ namespace PatternFinder
 
             string[] str = 
                 System.IO.File
-                    .ReadAllLines(@"C:\Users\Lawrence\Git Repos\Personal_CSharp_Utilities\PatternFinder\pic.txt");
+                    .ReadAllLines(@"C:\Users\lawre\Documents\GitHub\Personal_CSharp_Utilities\PatternFinder\pattern.txt");
             
 
             // takes the pattern from a separate file with lines of text
             string[] pat =
                 System.IO.File
-                    .ReadAllLines(@"C:\Users\Lawrence\Git Repos\Personal_CSharp_Utilities\PatternFinder\pattern.txt");
+                    .ReadAllLines(@"C:\Users\lawre\Documents\GitHub\Personal_CSharp_Utilities\PatternFinder\pic.txt");
 
             
             var newSet = new StringAndPattern(str, pat);
