@@ -74,6 +74,22 @@ namespace TextWriter
 
         }
 
+        public void GenerateInsertsForHintsDB()
+        {
+            
+	        for (int j = 1; j <= 94; j++)
+	        {
+
+		        StringBuilder sb = new StringBuilder();
+				sb.Append("INSERT INTO [dbo].[Hint] ([Order], [PuzzleId], [Text]) VALUES (0, " + j + " , N'\"\"NO HINT / CUSTOM TEXT\"\"')");
+                sb.Append($@"{Environment.NewLine}");
+		        
+                var input = sb.ToString();
+
+                _input.Add(input);
+	        }
+        }
+
 
     }
 

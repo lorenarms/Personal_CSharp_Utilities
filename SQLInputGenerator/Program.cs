@@ -17,16 +17,17 @@ namespace TextWriter
             int start = 0;
             string file = $@"C:\Users\Lawrence\Desktop\sqlInsert.txt";
 
-            Console.Write("How many lines to generate? ");
-            string? userInput = Console.ReadLine();
-            count = int.Parse(userInput);
+            //Console.Write("How many lines to generate? ");
+            //string? userInput = Console.ReadLine();
+            //count = int.Parse(userInput);
 
             
             var SQLInputGenerator = new SQLInputGenerator();
 
 
 
-            SQLInputGenerator.GenerateInput(count);
+            //SQLInputGenerator.GenerateInput(count);
+            SQLInputGenerator.GenerateInsertsForHintsDB();
 
             List<string> input = SQLInputGenerator.GetInput();
 
